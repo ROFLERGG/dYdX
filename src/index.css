@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hero {
+    font-weight: 700;
+    line-height: clamp(48px, 2.286rem + 3.57vw, 88px);
+    font-size: clamp(40px, 1.786rem + 3.57vw, 80px);
+  }
+  .heading-xl {
+    font-weight: 700;
+    line-height: clamp(40px, 1.929rem + 2.86vw, 72px);
+    font-size: clamp(32px, 1.5rem + 2.5vw, 60px);
+  }
+  .heading-lg {
+    font-weight: 700;
+    line-height: clamp(32px, 1.714rem + 1.43vw, 48px);
+    font-size: clamp(24px, 1.214rem + 1.43vw, 40px);
+  }
+  .heading-md {
+    font-weight: 700;
+    line-height: 2rem;
+    font-size: clamp(20px, 1.179rem + 0.36vw, 24px);
+  }
+  .heading-sm {
+    font-weight: 700;
+    line-height: 1.5rem;
+    font-size: clamp(16px, 0.929rem + 0.36vw, 20px);
+  }
+  .paragraph-lg {
+    font-weight: 700;
+    line-height: 1.5rem;
+    font-size: clamp(16px, 0.964rem + 0.18vw, 18px);
+  }
+  .paragraph-md {
+    font-weight: 600;
+    line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
+    font-size: clamp(14, 0.839rem + 0.18vw, 16px);
+  }
+  .paragraph-sm {
+    font-weight: 600;
+    line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
+    font-size: clamp(12px, 0.714rem + 0.18vw, 14px);
+  }
+  .mono-paragraph-xl {
+    font-family: "Space Mono", monospace;
+    font-weight: 500;
+    line-height: 1.5rem;
+    font-size: 20px;
+  }
+  .mono-paragraph-lg {
+    font-family: "Space Mono", monospace;
+    font-weight: 500;
+    line-height: 1.5rem;
+    font-size: 18px;
+  }
+  .mono-paragraph-md {
+    font-family: "Space Mono", monospace;
+    font-weight: 500;
+    line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
+    font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
+  }
+  .mono-paragraph-sm {
+    font-family: "Space Mono", monospace;
+    font-weight: 500;
+    line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
+    font-size: 14px;
+  }
+  .label {
+    font-weight: 700;
+    line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
+    font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
+  }
+}
