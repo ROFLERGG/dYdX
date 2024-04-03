@@ -74,26 +74,6 @@
     font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
   }
   /* tooltip */
-
-  /* .tooltip {
-    position: relative;
-  }
-  .tooltip::before {
-    font-family: sans-serif;
-    white-space: nowrap;
-    content: attr(data-tooltip);
-    background-color: darkred;
-    border-radius: 8px;
-    position: absolute;
-    display: none;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 12px;
-  }
-  .tooltip:hover::before {
-    display: block;
-  } */
   .tooltip {
     @apply relative;
   }
@@ -108,17 +88,5 @@
   }
   .tooltip:hover::after {
     @apply block;
-  }
-  .position-left {
-    @apply before:right-full before:mr-3 before:inset-y-1/2 before:-translate-y-1/2 after:right-full after:inset-y-1/2 after:-translate-y-1/2 after:-mr-1 after:border-r-transparent after:border-t-transparent after:border-b-transparent;
-  }
-  .position-right {
-    @apply before:left-full before:ml-3 before:inset-y-1/2 before:-translate-y-1/2 after:left-full after:inset-y-1/2 after:-translate-y-1/2 after:-ml-1 after:border-l-transparent after:border-t-transparent after:border-b-transparent;
-  }
-  .position-top {
-    @apply before:bottom-full before:mb-3 before:inset-x-1/2 before:-translate-x-1/2 after:bottom-full after:inset-x-1/2 after:-translate-x-1/2 after:-mb-1 after:border-l-transparent after:border-b-transparent after:border-r-transparent;
-  }
-  .position-bottom {
-    @apply before:top-full before:mt-3 before:inset-x-1/2 before:-translate-x-1/2 after:top-full after:inset-x-1/2 after:-translate-x-1/2 after:-mt-1 after:border-l-transparent after:border-t-transparent after:border-r-transparent;
   }
 }

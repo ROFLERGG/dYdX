@@ -1,8 +1,8 @@
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/logo.svg";
 import './ui/buttons'
 import Badges from "./ui/badges";
 import Button from "./ui/buttons";
-import sprite from './../assets/icons/sprite.svg'
+import Sprite from './../assets/sprite.svg'
 import Tooltip from "./ui/tooltip";
 
 const Layout = ({ children }) => {
@@ -11,26 +11,25 @@ const Layout = ({ children }) => {
       <header className="w-full px-8 py-6">
         <div className="flex justify-between items-center">
           <a href="/">
-            <img src={Logo} alt="logo" />
+            <img className="w-[112px] h-[66px] max-sm:w-[80px] max-sm:h-[48px]" src={Logo} alt="logo" />
           </a>
           <div className="flex items-center space-x-3 max-lg:hidden">
             <div className="flex items-center">
-              <Tooltip position={left} text={'ok'}>
-                <Button nav='default'>
-                  Discover initiatives
-                </Button>
-              </Tooltip>
-              <Button nav='default'>Funded grants</Button>
-              <Button nav='default'>Program expenses</Button>
-              <Button nav='default'>Blog</Button>
-              <Button nav='default'>FAQ</Button>
+              <Button nav={'default'}>Discover initiatives</Button>
+              <Button nav={'default'}>Funded grants</Button>
+              <Button nav={'default'}>Program expenses</Button>
+              <Button nav={'default'}>Blog</Button>
+              <Button nav={'default'}>FAQ</Button>
             </div>
             <Button btn={'primary'}>Apply for grant</Button>
+          </div>
+          <div className="hidden items-center space-x-3 max-lg:flex">
+            <Button btn={'primary'}>Apply</Button>
           </div>
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <footer>1231</footer>
+      <footer className="w-full px-8 py-6">123</footer>
     </div>
   );
 };
