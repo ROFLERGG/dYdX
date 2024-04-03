@@ -1,4 +1,5 @@
 import Logo from "../assets/logo.svg";
+import FooterLogo from "../assets/footer-logo.svg"
 import './ui/buttons'
 import Badges from "./ui/badges";
 import Button from "./ui/buttons";
@@ -31,13 +32,20 @@ const Layout = ({ children }) => {
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <footer className="w-full py-[60px]">
+      <footer className="w-full py-[60px] max-lg:py-[30px]">
         <div className="container">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center max-lg:flex-col">
             <div className="flex items-center space-x-8">
               <a href="/">
-                <img src="" alt="" />
+                <img className="w-[60px] h-[60px]" src={FooterLogo} alt="footer-logo" />
               </a>
+              <div className="flex items-center space-x-8">
+                <Button nav={'default'}>About</Button>
+                <Button nav={'default'}>FAQ</Button>
+                <Button nav={'default'}>Brand assets</Button>
+                <Button nav={'default'}>dYdX Foundation</Button>
+                <Button nav={'default'}>dYdX trading</Button>
+              </div>
             </div>
           </div>
         </div>
