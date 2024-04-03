@@ -40,11 +40,11 @@ const Layout = ({ children }) => {
                 <img className="w-[60px] h-[60px]" src={FooterLogo} alt="footer-logo" />
               </a>
               <div className="flex items-center space-x-8">
-                <Button nav={'default'}>About</Button>
-                <Button nav={'default'}>FAQ</Button>
-                <Button nav={'default'}>Brand assets</Button>
-                <Button nav={'default'}>dYdX Foundation</Button>
-                <Button nav={'default'}>dYdX trading</Button>
+                <Button href='/' nav={'sm'}>About</Button>
+                <Button href='/' nav={'sm'}>FAQ</Button>
+                <Button href='/' nav={'sm'}>Brand assets</Button>
+                <Button href='/' nav={'sm'}>dYdX Foundation</Button>
+                <Button href='/' nav={'sm'}>dYdX trading</Button>
               </div>
             </div>
           </div>
