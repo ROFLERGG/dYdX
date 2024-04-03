@@ -31,7 +31,17 @@ const Layout = ({ children }) => {
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <footer className="w-full py-[60px]">123</footer>
+      <footer className="w-full py-[60px]">
+        <div className="container">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-8">
+              <a href="/">
+                <img src="" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
