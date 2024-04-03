@@ -6,7 +6,9 @@ const Tooltip = ({ text, children }) => {
   const bottom = 'position-bottom'
   const left = 'position-left'
   
-  const [position, setPosition] = useState([top,right,bottom,left])
+  const [positionIndex, setPositionIndex] = useState(0)
+
+  const position = [top, right, bottom, left][positionIndex]
 
   return (
     <div data-tooltip={text} className={`tooltip ${isLeft ? `${left}` : ''} ${isRight ? `${right}` : ''} ${isTop ? `${top}` : ''} ${isBottom ? `${bottom}` : ''}`}>{children}</div>
