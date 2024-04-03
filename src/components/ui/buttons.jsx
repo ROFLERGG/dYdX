@@ -15,4 +15,9 @@ const buttonVariants = cva('', {
   }
 })
 
-export default buttonVariants
+
+const Button = ({nav, btn, ...rest }) => {
+  return <button className={buttonVariants({ nav, btn })} {...rest}/>
+}
+
+export default Button

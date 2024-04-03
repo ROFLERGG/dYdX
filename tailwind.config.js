@@ -18,6 +18,8 @@ export default {
       'white-500': '#C8C7D8',
       'tertiary': '#A59EBA',
       'subtle': '#393953',
+      'black': '#000000',
+      'transparent': 'transparent',
     },
     extend: {
       fontFamily: {

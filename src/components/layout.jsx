@@ -3,6 +3,7 @@ import './ui/buttons'
 import Badges from "./ui/badges";
 import Button from "./ui/buttons";
 import sprite from './../assets/icons/sprite.svg'
+import Tooltip from "./ui/tooltip";
 
 const Layout = ({ children }) => {
   return (
@@ -14,13 +15,17 @@ const Layout = ({ children }) => {
           </a>
           <div className="flex items-center space-x-3 max-lg:hidden">
             <div className="flex items-center">
-              <button className={Button({ nav:"default" })}>Discover initiatives</button>
-              <button className={Button({ nav:"default" })}>Funded grants</button>
-              <button className={Button({ nav:"default" })}>Program expenses</button>
-              <button className={Button({ nav:"default" })}>Blog</button>
-              <button className={Button({ nav:"default" })}>FAQ</button>
+              <Tooltip position={left} text={'ok'}>
+                <Button nav='default'>
+                  Discover initiatives
+                </Button>
+              </Tooltip>
+              <Button nav='default'>Funded grants</Button>
+              <Button nav='default'>Program expenses</Button>
+              <Button nav='default'>Blog</Button>
+              <Button nav='default'>FAQ</Button>
             </div>
-            <button className={Button({ btn:"primary" })}>Apply for grant</button>
+            <Button btn={'primary'}>Apply for grant</Button>
           </div>
         </div>
       </header>
