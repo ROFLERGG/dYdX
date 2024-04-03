@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { cva } from 'class-variance-authority';
 
 const tooltipVariants = cva('tooltip', {
