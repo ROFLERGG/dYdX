@@ -11,7 +11,7 @@ const Tooltip = ({ text, children }) => {
   const position = [top, right, bottom, left][positionIndex]
 
   return (
-    <div data-tooltip={text} className={`tooltip ${isLeft ? `${left}` : ''} ${isRight ? `${right}` : ''} ${isTop ? `${top}` : ''} ${isBottom ? `${bottom}` : ''}`}>{children}</div>
+    <div data-tooltip={text} className={`tooltip ${position}`}>{children}</div>
   )
 }
 
