@@ -35,9 +35,9 @@
     font-size: clamp(16px, 0.964rem + 0.18vw, 18px);
   }
   .paragraph-md {
-    font-weight: 600;
+    font-weight: 400;
     line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
-    font-size: clamp(14, 0.839rem + 0.18vw, 16px);
+    font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
   }
   .paragraph-sm {
     font-weight: 600;

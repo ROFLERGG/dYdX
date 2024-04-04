@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
       <header className="w-full px-8 py-6 max-lg:px-6 max-lg:py-4">
         <div className="flex justify-between items-center">
           <a href="/">
-            <img className="w-[112px] h-[66px] max-sm:w-[80px] max-sm:h-[48px]" src={Logo} alt="logo" />
+            <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
           </a>
           <div className="flex items-center space-x-3 max-lg:hidden">
             <div className="flex items-center">
