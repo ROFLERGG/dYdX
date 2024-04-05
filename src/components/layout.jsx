@@ -1,6 +1,5 @@
 import Logo from "../assets/logo.svg";
 import FooterLogo from "../assets/footer-logo.svg"
-import './ui/buttons'
 import Badges from "./ui/badges";
 import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
