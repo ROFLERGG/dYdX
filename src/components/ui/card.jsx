@@ -7,9 +7,9 @@ const cardData = [
 
 const GrantCard = () => {
   return (
-    cardData.map(({image, category, title, amount, description, url, users}) => {
+    cardData.map(({image, category, title, amount, description, url, users}, index) => {
       return (
-        <div className="px-4 flex shrink-0">
+        <div id={index + 1} className="px-4 flex shrink-0">
           <a href={url} className={`flex snap-center ${image && 'flex-col'} max-w-[392px] max-lg:max-w-[320px] bg-secondary rounded-2xl`}>
             {/* image */}
             {image && 
