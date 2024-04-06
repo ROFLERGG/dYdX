@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import MenuIcon from './../../assets/sprite.svg'
 
-const Menu = () => {
+const MenuButton = () => {
   const [isOpen, setIsOpen] = useState(false)
   
   const closed = `${MenuIcon + '#fi_menu'}`
@@ -20,4 +20,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default MenuButton

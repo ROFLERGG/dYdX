@@ -4,7 +4,7 @@ import Badges from "./ui/badges";
 import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
 import Tooltip from "./ui/tooltip";
-import Menu from "./ui/menu"
+import MenuButton from "./ui/menu-button"
 import Social from "./../assets/socials.svg"
 
 const Layout = ({ children }) => {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
           </div>
           <div className="hidden items-center space-x-4 max-lg:flex">
             <Button btn={'primary'}>Apply</Button>
-            <Menu/>
+            <MenuButton/>
           </div>
         </div>
       </header>
