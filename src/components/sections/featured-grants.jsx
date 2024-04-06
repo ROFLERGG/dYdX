@@ -1,14 +1,15 @@
 import GrantCard from "../ui/card"
 import Sprite from './../../assets/sprite.svg'
+import Grid from './../../assets/grid.png'
 
 export default function Grants() {
   return (
     <div className="">
       <div className="container max-lg:mx-0 max-lg:px-0">
         <div className="flex flex-col">
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="flex flex-col items-center space-y-6 max-w-[600px] py-[80px]">
+          <div className="flex justify-center relative overflow-hidden">
+            <div className="max-w-[600px] py-[80px] z-50">
+              <div className="px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center">
                   <h2 className="heading-lg text-white-100">Projects built with grants</h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
@@ -20,7 +21,9 @@ export default function Grants() {
                   </svg>
                 </a>
               </div>
-              <div className="absolute w-full h-full top-0"></div>
+            </div>
+            <div className="absolute inset-y-1/2 -translate-y-1/2 min-w-[920px] h-[320px]">
+              <img className="grid object-cover object-center z-10 h-[320px]" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
           <div className="relative overflow-x-hidden">
