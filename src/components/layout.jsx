@@ -5,6 +5,7 @@ import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
 import Tooltip from "./ui/tooltip";
 import MenuButton from "./ui/menu-button"
+import Menu from './ui/menu';
 import Social from "./../assets/socials.svg"
 
 const Layout = ({ children }) => {
@@ -76,6 +77,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </footer>
+      <Menu/>
     </div>
   );
 };
