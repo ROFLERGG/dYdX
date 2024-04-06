@@ -3,21 +3,24 @@ import Sprite from './../../assets/sprite.svg'
 
 export default function Grants() {
   return (
-    <div className="py-[80px]">
+    <div className="">
       <div className="container max-lg:mx-0 max-lg:px-0">
-        <div className="flex flex-col space-y-[60px]">
+        <div className="flex flex-col">
           <div className="flex justify-center">
-            <div className="flex flex-col items-center space-y-6 max-w-[600px] px-4">
-              <div className="flex flex-col space-y-4 text-center">
-                <h2 className="heading-lg text-white-100">Projects built with grants</h2>
-                <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
+            <div className="relative">
+              <div className="flex flex-col items-center space-y-6 max-w-[600px] py-[80px]">
+                <div className="flex flex-col space-y-4 text-center">
+                  <h2 className="heading-lg text-white-100">Projects built with grants</h2>
+                  <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
+                </div>
+                <a href="/" className="paragraph-lg text-brand flex items-center space-x-2 hover:underline">
+                  <span>View all funded projects</span>
+                  <svg className="w-6 h-6">
+                    <use xlinkHref={Sprite + '#fi_arrow-right'}/>
+                  </svg>
+                </a>
               </div>
-              <a href="/" className="paragraph-lg text-brand flex items-center space-x-2 hover:underline">
-                <span>View all funded projects</span>
-                <svg className="w-6 h-6">
-                  <use xlinkHref={Sprite + '#fi_arrow-right'}/>
-                </svg>
-              </a>
+              <div className="absolute w-full h-full top-0"></div>
             </div>
           </div>
           <div className="relative overflow-x-hidden">
