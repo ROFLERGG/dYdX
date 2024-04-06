@@ -4,11 +4,11 @@ import Grid from './../../assets/grid.png'
 
 export default function Grants() {
   return (
-    <div className="">
+    <div className="pb-[80px]">
       <div className="container max-lg:mx-0 max-lg:px-0">
         <div className="flex flex-col">
           <div className="flex justify-center relative overflow-hidden">
-            <div className="max-w-[600px] py-[80px] z-50">
+            <div className="max-w-[600px] py-[80px] max-lg:pb-[40px] z-50">
               <div className="px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center">
                   <h2 className="heading-lg text-white-100">Projects built with grants</h2>
@@ -22,8 +22,8 @@ export default function Grants() {
                 </a>
               </div>
             </div>
-            <div className="absolute top-0 min-w-[920px] h-[320px]">
-              <img className="grid object-cover object-center z-10 h-[320px]" width={920} height={320} src={Grid} alt="grid" />
+            <div className="absolute top-0 min-w-[920px] h-full">
+              <img className="grid object-cover object-center z-10 h-full" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
           <div className="relative overflow-x-hidden">
