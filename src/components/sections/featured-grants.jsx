@@ -12,7 +12,7 @@ export default function Grants() {
                 <h2 className="heading-lg text-white-100">Projects built with grants</h2>
                 <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
               </div>
-              <a href="/" className="paragraph-lg text-brand flex items-center space-x-2">
+              <a href="/" className="paragraph-lg text-brand flex items-center space-x-2 hover:underline">
                 <span>View all funded projects</span>
                 <svg className="w-6 h-6">
                   <use xlinkHref={Sprite + '#fi_arrow-right'}/>
