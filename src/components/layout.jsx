@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.svg";
+import Logo from '../assets/logo.svg';
 import FooterLogo from "../assets/footer-logo.svg"
 import Badges from "./ui/badges";
 import Button from "./ui/buttons";
