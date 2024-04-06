@@ -11,7 +11,7 @@ import Social from "./../assets/socials.svg"
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen bg-primary">
-      <header className="w-full px-8 py-6 max-lg:px-6 max-lg:py-4">
+      <header className="w-full px-8 py-6 max-lg:px-6 max-lg:py-4 z-50">
         <div className="flex justify-between items-center">
           <a href="/">
             <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />

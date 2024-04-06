@@ -22,7 +22,7 @@ export default function Grants() {
                 </a>
               </div>
             </div>
-            <div className="absolute inset-y-1/2 -translate-y-1/2 min-w-[920px] h-[320px]">
+            <div className="absolute top-0 min-w-[920px] h-[320px]">
               <img className="grid object-cover object-center z-10 h-[320px]" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>

@@ -1,9 +1,10 @@
 import Button from "../ui/buttons"
 import DownArrow from "./../../assets/down-arrow.svg"
+import Grid from "./../../assets/grid.png"
 
 const Hero = () => {
   return (
-    <div className="relative py-[80px]">
+    <div className="relative py-[80px] z-40">
       <div className="container">
         <div className="flex justify-center">
           <div className="flex flex-col max-w-[800px] space-y-[80px] max-sm:space-y-[40px]">

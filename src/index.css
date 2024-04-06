@@ -93,4 +93,8 @@
     mask-image: radial-gradient(rgba(0, 0, 0, 1) 40%, transparent 70%);
     -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 1) 40%, transparent 70%);
   }
+  .grid-to-bottom {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 10%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 10%, transparent 100%);
+  }
 }
