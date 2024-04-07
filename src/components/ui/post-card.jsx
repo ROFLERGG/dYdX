@@ -1,4 +1,4 @@
-const PostData = [
+const postData = [
   {
     image: "",
     category: "",
@@ -10,9 +10,17 @@ const PostData = [
 
 const PostCard = () => {
   return (
-    PostData.map((post) => {
+    postData.map(({image, category, title, date, url}) => {
       return (
-        <a href={post.url} className="flex flex-col"></a>
+        <div className="px-3">
+          <a href={url} className={`flex ${image && "flex-col"} flex-1 max-w-[400px]`}>
+            {image &&
+              <div className="w-full">
+                <img src="" alt="" />
+              </div>
+            }
+          </a>
+        </div>
       )
     })
   )

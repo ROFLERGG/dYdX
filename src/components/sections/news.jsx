@@ -33,7 +33,7 @@ const News = () => {
           </div>
           <div className="flex justify-center">
             <div className="max-w-[800px]">
-              <div className="flex gap-6">
+              <div className="flex">
                 {/* blog post */}
               </div>
             </div>
