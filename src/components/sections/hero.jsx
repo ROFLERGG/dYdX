@@ -1,18 +1,19 @@
 import Button from "../ui/buttons"
 import DownArrow from "./../../assets/down-arrow.svg"
 import Grid from "./../../assets/grid.png"
+import Underline from "./../../assets/underline.svg"
 
 const Hero = () => {
   return (
-    <div className="relative py-[80px] z-40">
+    <div className="relative py-[80px]">
       <div className="container">
         <div className="flex justify-center">
           <div className="flex flex-col max-w-[800px] space-y-[80px] max-sm:space-y-[40px]">
             <div className="flex flex-col space-y-[40px]">
-              <h1 className="hero text-white-100 text-center space-x-4">Powering the future of dYdX through community
-                <span className="relative">
+              <h1 className="hero text-white-100 text-center whitespace-normal">Powering the future of dYdX through community
+                <span className="relative inline-block px-2">
                   <span> grants</span>
-                  
+                  <img className="absolute right-0 top-full" width={277} height={24} src={Underline} alt="underline" />
                 </span>
               </h1>
               <div className="flex justify-center items-center space-x-8 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4 max-sm:items-stretch">
