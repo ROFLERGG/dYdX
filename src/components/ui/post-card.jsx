@@ -22,7 +22,7 @@ const PostCard = () => {
   return (
     postData.map(({image, category, title, date, url}, index) => {
       return (
-        <div className="px-3">
+        <div className="px-6">
           <a href={url} className={`flex ${image && "flex-col"} flex-1  max-w-[400px] h-[440px] max-lg:h-[380px] rounded-2xl bg-secondary hover:bg-secondaryHover duration-150 ease-in-out`}>
             {image &&
               <img src={image} alt={index + 1}/>
