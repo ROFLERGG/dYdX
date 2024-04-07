@@ -39,10 +39,10 @@ const GrantCard = () => {
     cardData.map(({image, category, title, amount, description, url, users}, index) => {
       return (
         <div id={index + 1} className="px-4 flex shrink-0">
-          <a href={url} className={`flex snap-center ${image && 'flex-col'} max-w-[392px] max-sm:max-w-[320px] max-[360px]:max-w-[256px] bg-secondary rounded-2xl`}>
+          <a href={url} className={`flex snap-center ${image && 'flex-col'} max-w-[392px] max-sm:max-w-[320px] max-[360px]:max-w-[256px] bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
             {/* image */}
             {image && 
-            <div className="w-full h-[180px] bg-secondaryHover rounded-2xl"></div>
+            <div className="w-full h-[180px] bg-[#232334] rounded-2xl"></div>
             }
             {/* content */}
             <div className="p-6 flex flex-col justify-between space-y-4">

@@ -1,6 +1,7 @@
 import Grid from "./../../assets/grid.png"
 import Sprite from "./../../assets/sprite.svg"
 import Sparkle from "./../../assets/sparkle.svg"
+import PostCard from "../ui/post-card"
 
 const News = () => {
   return (
@@ -33,8 +34,9 @@ const News = () => {
           </div>
           <div className="flex justify-center">
             <div className="max-w-[800px]">
-              <div className="flex">
+              <div className="flex max-lg:flex-col max-lg:space-y-6">
                 {/* blog post */}
+                <PostCard/>
               </div>
             </div>
           </div>
