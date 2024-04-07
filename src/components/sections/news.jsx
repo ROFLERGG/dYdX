@@ -10,7 +10,12 @@ const News = () => {
             <div className="max-w-[600px] py-[80px] max-lg:py-[40px] z-50">
               <div className="px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center">
-                  <h2 className="heading-lg text-white-100">Projects built with grants</h2>
+                  <h2 className="heading-lg text-white-100 text-center">What’s
+                    <span className="relative inline-block px-2">
+                      <span>new?</span>
+                      <img className="absolute right-0 top-full" src="" alt="underline" />
+                    </span>
+                  </h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
                 </div>
                 <a href="/" className="paragraph-lg text-brand flex items-center space-x-2 hover:underline">
