@@ -3,6 +3,7 @@ import Hero from './components/sections/hero.jsx'
 import Layout from './components/layout.jsx'
 import Grants from './components/sections/featured-grants.jsx'
 import News from './components/sections/news.jsx'
+import Questions from './components/sections/questions.jsx'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero/>
       <Grants/>
       <News/>
+      <Questions/>
       {/* ... */}
     </Layout>
   )

@@ -23,7 +23,7 @@ export default function Grants() {
               </div>
             </div>
             <div className="absolute top-0 min-w-[920px] h-full">
-              <img className="grid object-cover object-center z-10 h-full" width={920} height={320} src={Grid} alt="grid" />
+              <img className="grid object-cover object-center z-10 h-full select-none" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
           <div className="relative overflow-x-hidden">
