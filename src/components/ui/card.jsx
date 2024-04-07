@@ -1,8 +1,37 @@
 const cardData = [
-  {category: 'Crowdfund', title: 'Funding rates page', amount: '$5,000 - $6,000', description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', url: '/', users: ['1','2','3']},
-  {image: 'test', category: 'Edition', title: 'Tradingview integration', amount: '$5,000 - $6,000', description: 'The grant will be used to build a web application that integrates Tradingview strategies into a dYdX Trading account to execute trades directly through a strategy. Users will be able to tap into Tradingview resources.', url: '/', users: ['1','2','3']},
-  {category: 'Entry', title: 'Rewards optimization research and paper', amount: '$5,000 - $6,000', description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', url: '/', users: ['1','2','3']},
-  {category: 'Crowdfund', title: 'DAO Organizational Structure Research', amount: '$5,000 - $6,000', description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', url: '/', users: ['1','2','3']}
+  {
+    category: 'Crowdfund',
+    title: 'Funding rates page', 
+    amount: '$5,000 - $6,000', 
+    description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', 
+    url: '/', 
+    users: ['1','2','3']
+  },
+  {
+    image: 'test', 
+    category: 'Edition', 
+    title: 'Tradingview integration', 
+    amount: '$5,000 - $6,000', 
+    description: 'The grant will be used to build a web application that integrates Tradingview strategies into a dYdX Trading account to execute trades directly through a strategy. Users will be able to tap into Tradingview resources.', 
+    url: '/', 
+    users: ['1','2','3']
+  },
+  {
+    category: 'Entry', 
+    title: 'Rewards optimization research and paper', 
+    amount: '$5,000 - $6,000', 
+    description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', 
+    url: '/', 
+    users: ['1','2','3']
+  },
+  {
+    category: 'Crowdfund', 
+    title: 'DAO Organizational Structure Research', 
+    amount: '$5,000 - $6,000', 
+    description: 'Grant will be used to build a dedicated web app to give traders a view of all dYdX asset funding rates across multiple timeframes. The page will be interactive to include deep diving across different assets and historical analysis of changing rates. It will also include API functionalities to allow developer access.', 
+    url: '/', 
+    users: ['1','2','3']
+  }
 ]
 
 const GrantCard = () => {
