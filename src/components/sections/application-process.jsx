@@ -1,8 +1,8 @@
 import Grid from "./../../assets/grid.png"
-import Oval from "./../../assets/oval.png"
-import FaqButton from "../ui/faq-button"
+import Wave from "./../../assets/wave.png"
+import ProcessCard from "../ui/process"
 
-const Questions = () => {
+const ApplicationProcess = () => {
   return (
     <div className="pb-[80px]">
       <div className="container max-lg:mx-0 max-lg:px-0">
@@ -11,10 +11,10 @@ const Questions = () => {
             <div className="max-w-[600px] py-[80px] max-lg:py-[40px] z-50">
               <div className="px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center">
-                  <h2 className="heading-lg text-white-100 text-center">Frequently asked
+                  <h2 className="heading-lg text-white-100 text-center">Application
                     <span className="inline-block relative px-2">
-                      <span>questions</span>
-                      <img className="absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2" src={Oval} alt="Oval" />
+                      <span>process</span>
+                      <img className="absolute top-full -inset-x-1/2 translate-x-1/2" src={Wave} alt="Oval" />
                     </span>
                   </h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
@@ -25,10 +25,9 @@ const Questions = () => {
               <img className="grid object-cover object-center z-10 h-full" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
-          <div className="max-lg:px-6">
-            <div className="flex flex-col border-t border-b border-subtle divide-y divide-subtle">
-              <FaqButton/>
-            </div>
+          <div className="flex justify-between space-x-6 px-6">
+            {/* ProcessCard */}
+            <ProcessCard/>
           </div>
         </div>
       </div>
@@ -36,4 +35,4 @@ const Questions = () => {
   )
 }
 
-export default Questions
+export default ApplicationProcess

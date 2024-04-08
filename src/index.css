@@ -73,6 +73,12 @@
     line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
     font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
   }
+  .number {
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 500;
+    line-height: clamp(3rem, 2.714rem + 1.43vw, 4rem);
+    font-size: clamp(48px, 2.714rem + 1.43vw, 64px);
+  }
   /* tooltip */
   .tooltip {
     @apply relative;
