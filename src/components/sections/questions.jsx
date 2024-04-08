@@ -1,5 +1,6 @@
 import Grid from "./../../assets/grid.png"
 import Oval from "./../../assets/oval.png"
+import FaqButton from "../ui/faq-button"
 
 const Questions = () => {
   return (
@@ -13,7 +14,7 @@ const Questions = () => {
                   <h2 className="heading-lg text-white-100 text-center">Frequently asked
                     <span className="inline-block relative px-2">
                       <span>questions</span>
-                      <img className="absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 select-none" src={Oval} alt="Oval" />
+                      <img className="absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2" src={Oval} alt="Oval" />
                       {/* <img className="absolute h-[200px]" src={Oval} alt="underline" /> */}
                     </span>
                   </h2>
@@ -23,6 +24,11 @@ const Questions = () => {
             </div>
             <div className="absolute top-0 min-w-[920px] h-full">
               <img className="grid object-cover object-center z-10 h-full" width={920} height={320} src={Grid} alt="grid" />
+            </div>
+          </div>
+          <div className="max-lg:px-6">
+            <div className="flex flex-col border-t border-b border-subtle divide-y divide-subtle">
+              <FaqButton/>
             </div>
           </div>
         </div>
