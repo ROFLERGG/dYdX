@@ -25,7 +25,7 @@ const ApplicationProcess = () => {
               <img className="grid object-cover object-center z-10 h-full" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
-          <div className="flex justify-between space-x-6 px-6">
+          <div className="flex justify-between gap-8 px-6 max-md:flex-col">
             {/* ProcessCard */}
             <ProcessCard/>
           </div>
