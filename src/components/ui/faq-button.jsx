@@ -47,10 +47,10 @@ const AccordionButton = ({question, answer, id}) => {
   return (
     <div>
       <input type="checkbox" name="question" id={"question" + 1} className="hidden"/>
-      <label onClick={setIsOpenHandler} htmlFor={"question" + 1} className="flex flex-col space-y-6 py-6 cursor-pointer select-none">
+      <label onClick={setIsOpenHandler} htmlFor={"question" + 1} className="flex flex-col justify-center space-y-6 py-6 cursor-pointer select-none">
         <div className="flex justify-between space-x-6">
           <p className="paragraph-lg text-white-100">{question}</p>
-          <svg className={`w-6 h-6 ${isOpen ? "rotate-45" : ""}`}>
+          <svg className={`w-6 h-6 shrink-0 ${isOpen ? "rotate-45" : ""}`}>
             <use xlinkHref={Plus + "#fi_plus"}/>
           </svg>
         </div>
