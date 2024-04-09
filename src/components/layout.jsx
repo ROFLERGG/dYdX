@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
             <MenuButton/>
           </div>
         </div>
+        <Menu/>
       </header>
       <main className="flex-1">{children}</main>
       <footer className="w-full py-[60px] max-lg:py-[30px]">
@@ -77,7 +78,6 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </footer>
-      <Menu/>
     </div>
   );
 };
