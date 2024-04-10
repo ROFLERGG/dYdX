@@ -9,7 +9,7 @@ const Header = forwardRef((props, ref) => {
   const opened = `${MenuIcon + '#fi_x'}`
   const toggleMenu = () => {
     setIsOpen((isOpen) => {
-      ref.current.style.overflowY = !isOpen ? "hidden" : "visible"
+      ref.current.style.overflowY = !isOpen ? "hidden" : "scroll"
       return !isOpen
     })
   }
