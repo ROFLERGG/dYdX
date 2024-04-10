@@ -21,7 +21,7 @@ const Header = forwardRef((props, ref) => {
         </a>
         <div className="flex items-center space-x-3">
           <nav>
-            <ul className={`flex items-center max-lg:flex-col max-lg:justify-center max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:h-full max-lg:bg-secondary max-lg:space-y-8 duration-500 ease-in-out ${isOpen ? "max-lg:translate-x-0" : "max-lg:translate-x-full"}`}>
+            <ul className={`flex items-center max-lg:flex-col max-lg:justify-center max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:h-full max-lg:bg-secondary max-lg:space-y-6 duration-500 ease-in-out ${isOpen ? "max-lg:translate-x-0" : "max-lg:translate-x-full"}`}>
               <li><Button href={'/'} link={'default'} text={'grey'} className={'mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap'}>Discover initiatives</Button></li>
               <li><Button href={'/'} link={'default'} text={'grey'} className={'mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap'}>Funded grants</Button></li>
               <li><Button href={'/'} link={'default'} text={'grey'} className={'mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap'}>Program expenses</Button></li>
