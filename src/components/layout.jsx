@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
           </a>
           <div className="flex items-center space-x-3 max-lg:hidden">
             <div className="flex items-center">
-              <Button nav={'default'}>Discover initiatives</Button>
+              <Button nav={'default'} href='https://www.google.com.ua/' target='_blank'>Discover initiatives</Button>
               <Button nav={'default'}>Funded grants</Button>
               <Button nav={'default'}>Program expenses</Button>
               <Button nav={'default'}>Blog</Button>
