@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import Logo from '../assets/logo.svg';
 import Button from "./ui/buttons"
 import MenuIcon from "./../assets/sprite.svg"
 
-const Header = () => {
+const Header = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false)
-  const body = document.querySelector('#body')
   const closed = `${MenuIcon + '#fi_menu'}`
   const opened = `${MenuIcon + '#fi_x'}`
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
+    setIsOpen((isOpen) => {
+      ref.current.style.position = isOpen ? "static" : "fixed"
+      return !isOpen
+    })
   }
   return (
     <header className="w-full px-6 py-4 z-40 fixed bg-primary rounded-b-2xl">
@@ -37,6 +39,6 @@ const Header = () => {
       </div>
     </header>
   )
-}
+})
 
 export default Header

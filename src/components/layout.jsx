@@ -3,11 +3,13 @@ import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
 import Social from "./../assets/socials.svg"
 import Header from './header';
+import { useEffect, useRef } from "react";
 
 const Layout = ({ children }) => {
+  const menuRef = useRef(null)
   return (
-    <div id="body" className="flex flex-col min-h-screen bg-primary">
-      <Header/>
+    <div ref={menuRef} className="flex flex-col min-h-screen bg-primary">
+      <Header ref={menuRef}/>
       <main className="flex flex-col pt-[98px]">{children}</main>
       <footer className="w-full py-[60px] max-lg:py-[30px]">
         <div className="container">
