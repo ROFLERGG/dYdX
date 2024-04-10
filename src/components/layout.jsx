@@ -5,7 +5,6 @@ import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
 import Tooltip from "./ui/tooltip";
 import MenuButton from "./ui/menu-button"
-import Menu from './ui/menu';
 import Social from "./../assets/socials.svg"
 
 const Layout = ({ children }) => {
@@ -33,7 +32,6 @@ const Layout = ({ children }) => {
             <MenuButton/>
           </div>
         </div>
-        <Menu/>
       </header>
       <main className="flex-1">{children}</main>
       <footer className="w-full py-[60px] max-lg:py-[30px]">
