@@ -10,7 +10,7 @@ import Social from "./../assets/socials.svg"
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen bg-primary">
-      <header className="w-full px-6 py-4 z-50">
+      <header className="w-full px-6 py-4 z-40 fixed bg-primary">
         <div className="flex justify-between items-center">
           <a href="/">
             <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <main className="flex flex-col pt-[98px]">{children}</main>
       <footer className="w-full py-[60px] max-lg:py-[30px]">
         <div className="container">
           <div className="flex justify-between items-center max-lg:flex-col max-lg:items-start max-lg:space-y-8">

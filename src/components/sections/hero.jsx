@@ -38,7 +38,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <svg className="absolute bottom-0 inset-x-1/2 -translate-x-1/2 translate-y-1/2 w-[32px] h-[100px] z-20">
+      <svg className="absolute bottom-0 inset-x-1/2 -translate-x-1/2 translate-y-1/2 w-[32px] h-[100px]">
         <use xlinkHref={DownArrow + '#down-arrow'}></use>
       </svg>
     </div>
