@@ -31,10 +31,6 @@ export default function Grants() {
             <div className="snap-x snap-mandatory overflow-x-scroll scrollbar-none flex">
               <GrantCard/>
             </div>
-            <div className="max-lg:hidden">
-              <a href="/" className="absolute left-0 inset-y-1/2 -translate-y-1/2 w-14 h-14 bg-white-100 rounded-full"></a>
-              <a href="/" className="absolute right-0 inset-y-1/2 -translate-y-1/2 w-14 h-14 bg-white-100 rounded-full"></a>
-            </div>
           </div>
         </div>
       </div>
