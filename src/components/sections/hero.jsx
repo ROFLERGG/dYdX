@@ -16,9 +16,9 @@ const Hero = () => {
                   <img className="absolute right-0 top-full" src={Underline} alt="underline" />
                 </span>
               </h1>
-              <div className="flex justify-center items-center space-x-8 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4 max-sm:items-stretch">
-                <Button btn={'secondary'}>Discover RFPs</Button>
-                <Button btn={'primary'}>Apply for grant</Button>
+              <div className="flex justify-center space-x-8 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
+                <Button btn={'secondary'} bg={'secondary'} text={'white'} className={'text-center'}>Discover RFPs</Button>
+                <Button btn={'primary'} bg={'brand'} text={'white'} className={'text-center'}>Apply for grant</Button>
               </div>
             </div>
             <div className="flex justify-between items-center max-sm:flex-col max-sm:space-y-8">

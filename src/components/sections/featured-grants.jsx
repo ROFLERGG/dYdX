@@ -1,6 +1,7 @@
 import GrantCard from "../ui/card"
 import Sprite from './../../assets/sprite.svg'
 import Grid from './../../assets/grid.png'
+import Button from "../ui/buttons"
 
 export default function Grants() {
   return (
@@ -14,12 +15,12 @@ export default function Grants() {
                   <h2 className="heading-lg text-white-100">Projects built with grants</h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
                 </div>
-                <a href="/" className="paragraph-lg text-brand flex items-center space-x-2 hover:underline">
+                <Button href="/" link={'sm'} text={'brand'} className="paragraph-lg flex items-center space-x-2">
                   <span>View all funded projects</span>
                   <svg className="w-6 h-6">
                     <use xlinkHref={Sprite + '#fi_arrow-right'}/>
                   </svg>
-                </a>
+                </Button>
               </div>
             </div>
             <div className="absolute top-0 min-w-[920px] h-full">

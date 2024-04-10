@@ -11,23 +11,25 @@ import Social from "./../assets/socials.svg"
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen bg-primary">
-      <header className="w-full px-8 py-6 max-lg:px-6 max-lg:py-4 z-50">
+      <header className="w-full px-6 py-4 z-50">
         <div className="flex justify-between items-center">
           <a href="/">
             <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
           </a>
           <div className="flex items-center space-x-3 max-lg:hidden">
-            <div className="flex items-center">
-              <Button nav={'default'} href='https://www.google.com.ua/' target='_blank'>Discover initiatives</Button>
-              <Button nav={'default'}>Funded grants</Button>
-              <Button nav={'default'}>Program expenses</Button>
-              <Button nav={'default'}>Blog</Button>
-              <Button nav={'default'}>FAQ</Button>
-            </div>
-            <Button btn={'primary'}>Apply for grant</Button>
+            <nav>
+              <ul className="flex items-center">
+                <li><Button link={'default'} text={'grey'} className={'mono-paragraph-md'}>Discover initiatives</Button></li>
+                <li><Button link={'default'} text={'grey'} className={'mono-paragraph-md'}>Funded grants</Button></li>
+                <li><Button link={'default'} text={'grey'} className={'mono-paragraph-md'}>Program expenses</Button></li>
+                <li><Button link={'default'} text={'grey'} className={'mono-paragraph-md'}>Blog</Button></li>
+                <li><Button link={'default'} text={'grey'} className={'mono-paragraph-md'}>FAQ</Button></li>
+              </ul>
+            </nav>
+            <Button btn={'primary'} bg={'brand'} text={'white'}>Apply for grant</Button>
           </div>
           <div className="hidden items-center space-x-4 max-lg:flex">
-            <Button btn={'primary'}>Apply</Button>
+            <Button btn={'primary'} bg={'brand'} text={'white'}>Apply</Button>
             <MenuButton/>
           </div>
         </div>
@@ -42,10 +44,10 @@ const Layout = ({ children }) => {
                 <img className="w-[60px] h-[60px]" src={FooterLogo} alt="footer-logo" />
               </a>
               <div className="flex items-center space-x-8 max-sm:space-x-0 max-sm:flex-col max-sm:items-start max-sm:space-y-6">
-                <Button href='/' nav={'sm'}>About</Button>
-                <Button href='/' nav={'sm'}>FAQ</Button>
-                <Button href='/' nav={'sm'}>Brand assets</Button>
-                <Button href='/' nav={'sm'}>
+                <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>About</Button>
+                <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>FAQ</Button>
+                <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>Brand assets</Button>
+                <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>
                   <div className="flex items-center space-x-2">
                     <span>dYdX Foundation</span>
                     <svg className="w-4 h-4">
@@ -53,7 +55,7 @@ const Layout = ({ children }) => {
                     </svg>
                   </div>
                 </Button>
-                <Button href='/' nav={'sm'}>
+                <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>
                   <div className="flex items-center space-x-2">
                     <span>dYdX trading</span>
                     <svg className="w-4 h-4">
