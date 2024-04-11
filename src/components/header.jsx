@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react';
 import Logo from '../assets/logo.svg';
-import Button from "./ui/buttons"
-import MenuIcon from "./../assets/sprite.svg"
+import Button from './ui/buttons'
+import MenuIcon from './../assets/sprite.svg'
 
 const Header = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false)

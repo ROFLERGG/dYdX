@@ -1,6 +1,5 @@
 import Button from "../ui/buttons"
 import DownArrow from "./../../assets/down-arrow.svg"
-import Grid from "./../../assets/grid.png"
 import Underline from "./../../assets/underline.svg"
 
 const Hero = () => {
