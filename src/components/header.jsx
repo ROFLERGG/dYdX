@@ -17,7 +17,7 @@ const Header = forwardRef((props, ref) => {
   return (
     <header className="w-full px-6 py-4 z-40 fixed bg-primary rounded-b-2xl">
       <div className="flex justify-between items-center">
-        <a href="/" className='relative z-50'>
+        <a href="/home" className='relative z-50'>
           <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
         </a>
         <div className="flex items-center space-x-3">
