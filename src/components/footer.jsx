@@ -2,6 +2,7 @@ import FooterLogo from "../assets/footer-logo.svg"
 import Button from "./ui/buttons";
 import Sprite from './../assets/sprite.svg'
 import Social from "./../assets/socials.svg"
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -9,9 +10,9 @@ const Footer = () => {
       <div className="container">
         <div className="flex justify-between items-center max-lg:flex-col max-lg:items-start max-lg:space-y-8">
           <div className="flex items-center space-x-8 max-lg:flex-col max-lg:items-start max-lg:space-x-0 max-lg:space-y-8">
-            <a href="/">
+            <Link to="/">
               <img className="w-[60px] h-[60px]" src={FooterLogo} alt="footer-logo" />
-            </a>
+            </Link>
             <div className="flex items-center space-x-8 max-sm:space-x-0 max-sm:flex-col max-sm:items-start max-sm:space-y-6">
               <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>About</Button>
               <Button href='/' link={'sm'} text={'grey'} className={'mono-paragraph-md'}>FAQ</Button>
