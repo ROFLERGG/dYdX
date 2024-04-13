@@ -30,7 +30,8 @@ const buttonVariants = cva('cursor-pointer rounded-lg', {
     { link: 'default', text: 'grey', className: 'hover:text-white-100' },
     { bg: 'brand', className: 'hover:bg-brandHover' },
     { bg: 'secondary', className: 'hover:bg-secondaryHover' },
-    { bg: 'white', className: 'hover:bg-white-500' }
+    { bg: 'white', className: 'hover:bg-white-500' },
+    { btn: 'ghost', className: 'hover:bg-secondary' }
   ],
 })
 

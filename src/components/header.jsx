@@ -9,9 +9,10 @@ const Header = forwardRef((props, ref) => {
   const closed = `${MenuIcon + '#fi_menu'}`
   const opened = `${MenuIcon + '#fi_x'}`
   const location = useLocation()
-  const toggleMenu = (e) => {
+  const toggleMenu = () => {
     setIsOpen(isOpen => {
       ref.current.style.width = !isOpen ? "100%" : "auto"
+      ref.current.style.overflow = !isOpen ? "hidden" : "visible"
       return !isOpen
     })
   }
