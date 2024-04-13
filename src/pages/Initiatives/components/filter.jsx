@@ -1,5 +1,34 @@
-import CategoryHandler from "./categories"
 import Badge from './../../../components/ui/badges'
+import Button from "../../../components/ui/buttons"
+
+const categories = [
+  {
+    id: 1,
+    title: 'All'
+  },
+  {
+    id: 2,
+    title: 'Open'
+  },
+  {
+    id: 3,
+    title: 'Funded'
+  },
+  {
+    id: 4,
+    title: 'Completed'
+  },
+]
+
+const CategoryHandler = () => {
+  return (
+    categories.map((category) => {
+      return (
+        <Button btn={'ghost'} className={`text-white-500`}>{category.title}</Button>
+      )
+    })
+  )
+}
 
 const rfpItem = [
   {
