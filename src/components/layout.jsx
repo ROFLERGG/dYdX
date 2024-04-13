@@ -6,6 +6,8 @@ const Layout = ({ children }) => {
   const menuRef = useRef(null)
   useEffect(() => {
     menuRef.current = document.body;
+    menuRef.current.style.width = 'auto'
+    menuRef.current.style.position = 'static'
   }, []);
   return (
     <div className="flex flex-col min-h-screen bg-primary">
