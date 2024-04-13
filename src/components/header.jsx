@@ -2,19 +2,22 @@ import { forwardRef, useEffect, useState } from 'react';
 import Logo from '../assets/logo.svg';
 import Button from './ui/buttons'
 import MenuIcon from './../assets/sprite.svg'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false)
   const closed = `${MenuIcon + '#fi_menu'}`
   const opened = `${MenuIcon + '#fi_x'}`
-  const toggleMenu = () => {
+  const location = useLocation()
+  const toggleMenu = (e) => {
     setIsOpen(isOpen => {
       ref.current.style.width = !isOpen ? "100%" : "auto"
-      ref.current.style.position = !isOpen ? "fixed" : "static"
       return !isOpen
     })
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  },[location])
   return (
     <header className="w-full px-6 py-4 z-40 fixed bg-primary rounded-b-2xl">
       <div className="flex justify-between items-center">

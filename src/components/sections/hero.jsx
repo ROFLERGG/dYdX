@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Button from "../ui/buttons"
 import DownArrow from "./../../assets/down-arrow.svg"
 import Underline from "./../../assets/underline.svg"
@@ -16,7 +17,7 @@ const Hero = () => {
                 </span>
               </h1>
               <div className="flex justify-center space-x-8 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
-                <Button btn={'secondary'} bg={'secondary'} text={'white'} className={'text-center'}>Discover RFPs</Button>
+                <Link to="/initiatives"><Button btn={'secondary'} bg={'secondary'} text={'white'} className={'text-center flex justify-center'}>Discover RFPs</Button></Link>
                 <Button btn={'primary'} bg={'brand'} text={'white'} className={'text-center'}>Apply for grant</Button>
               </div>
             </div>
