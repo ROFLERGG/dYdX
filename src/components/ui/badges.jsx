@@ -5,7 +5,7 @@ const badgeVariants = cva('px-4 py-1 rounded-full paragraph-md text-white-100 se
     variant: {
       funded: 'bg-primary border border-subtle',
       open: 'bg-brand',
-      completed: 'bg-green',
+      success: 'bg-green',
       error: 'bg-red'
     }
   },
@@ -13,6 +13,7 @@ const badgeVariants = cva('px-4 py-1 rounded-full paragraph-md text-white-100 se
     variant: 'funded',
   },
 })
+
 
 const Badge = ({variant, ...rest}) => {
   return (

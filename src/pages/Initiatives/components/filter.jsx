@@ -124,7 +124,15 @@ const Filter = () => {
                   <p className="text-white-500"> {item.amount}</p>
                 </div>
               </div>
-              <Badge variant={'open'}>{item.category}</Badge>
+              {item.category === 'Open' && 
+                <Badge variant={'open'}>{item.category}</Badge>
+              }
+              {item.category === 'Funded' && 
+                <Badge variant={'funded'}>{item.category}</Badge>
+              }
+              {item.category === 'Completed' && 
+                <Badge variant={'success'}>{item.category}</Badge>
+              }
             </div>
           )
         })}
