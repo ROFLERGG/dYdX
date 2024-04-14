@@ -1,5 +1,6 @@
 import Badge from './../../../components/ui/badges'
 import Button from "../../../components/ui/buttons"
+import { useState } from 'react'
 
 const categories = [
   {
@@ -20,55 +21,99 @@ const categories = [
   },
 ]
 
-const CategoryHandler = () => {
-  return (
-    categories.map((category) => {
-      return (
-        <Button btn={'ghost'} className={`text-white-500`}>{category.title}</Button>
-      )
-    })
-  )
-}
-
 const rfpItem = [
   {
     id: 1,
     title: 'Funding Rate Page',
     description: 'Page that provides a live look at all funding rates with popular timeframes in annualized format',
     amount: '$45,000 - $85,000',
-    status: 'Funded'
+    category: 'Funded'
   },
   {
     id: 2,
     title: 'CLI Trading Tool',
-    description: 'Page that provides a live look at all funding rates with popular timeframes in annualized format',
+    description: 'Self-hosted CLI tool leveraging the dYdX API to allow all functionalities from a terminal',
     amount: '$25,000 - $40,000',
-    status: 'Funded'
+    category: 'Funded'
   },
   {
     id: 3,
     title: 'New Language SDKs',
-    description: 'Page that provides a live look at all funding rates with popular timeframes in annualized format',
+    description: 'Replicate existing Python SDK to new programming languages with all the same features',
     amount: '$25,000 - $40,000',
-    status: 'Open'
+    category: 'Open'
   },
   {
     id: 4,
     title: 'Liquidation Alert Tool',
-    description: 'Page that provides a live look at all funding rates with popular timeframes in annualized format',
+    description: 'Self-hosted tool that alerts the trader of upcoming liquidation prices across multiple messaging venues',
     amount: '$30,000 - $50,000',
-    status: 'Completed'
+    category: 'Completed'
+  },
+  {
+    id: 5,
+    title: 'Governance Dashboard',
+    description: 'Governance page to promote  discussions, proposals, delegation and voting',
+    amount: '$15,000 - $30,000',
+    category: 'Funded'
+  },
+  {
+    id: 6,
+    title: 'Delegation Tool',
+    description: 'Webpage to allow active participants to market their voting and enable direct delegation from DYDX holders',
+    amount: '$15,000 - $30,000',
+    category: 'Funded'
+  },
+  {
+    id: 7,
+    title: 'Newsletter',
+    description: 'Weekly or Monthly newsletters promoting and educating the dYdX platform',
+    amount: '$10,000 - $20,000',
+    category: 'Funded'
+  },
+  {
+    id: 8,
+    title: 'Academy Contributions',
+    description: 'Webpages, Courses, Glossaries and Youtube libraries educating new users on dYdX',
+    amount: '$10,000 - $25,000',
+    category: 'Funded'
+  },
+  {
+    id: 9,
+    title: 'Discord bots',
+    description: 'Additional Discord bots that notify members of activity on dYdX and governance',
+    amount: '$5,000 - $10,000',
+    category: 'Open'
+  },
+  {
+    id: 10,
+    title: 'Reward tracking & Simulator',
+    description: 'Page or tool that allows traders to calculate future rewards and simulate earnings from activity',
+    amount: '$20,000 - $30,000',
+    category: 'Funded'
   },
 ]
 
 const Filter = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  let filteredItem
+  if (activeCategory === "All") {
+    filteredItem = rfpItem
+  } else {
+    filteredItem = rfpItem.filter(item => item.category === activeCategory)
+  }
+
   return (
     <div className="flex flex-col space-y-10">
       <div className="flex justify-center flex-wrap gap-3">
-        <CategoryHandler/>
+        <Button onClick={() => setActiveCategory('All')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'All' && 'bg-secondary'}`}>All</Button>
+        <Button onClick={() => setActiveCategory('Open')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Open' && 'bg-secondary'}`}>Open</Button>
+        <Button onClick={() => setActiveCategory('Funded')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Funded' && 'bg-secondary'}`}>Funded</Button>
+        <Button onClick={() => setActiveCategory('Completed')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Completed' && 'bg-secondary'}`}>Completed</Button>
       </div>
       <div className="flex flex-col space-y-6">
-        {rfpItem.map((item) => {
+        {filteredItem.map((item) => {
           return (
             <div key={item.id} className="flex justify-between items-start space-x-8 bg-secondary rounded-2xl p-6 max-[400px]:space-x-0 max-[400px]:space-y-8 max-[400px]:flex-col">
               <div className="flex flex-col space-y-2">
@@ -79,7 +124,7 @@ const Filter = () => {
                   <p className="text-white-500"> {item.amount}</p>
                 </div>
               </div>
-              <Badge>{item.status}</Badge>
+              <Badge variant={'open'}>{item.category}</Badge>
             </div>
           )
         })}
