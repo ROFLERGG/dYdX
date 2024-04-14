@@ -1,6 +1,6 @@
 import Badge from './../../../components/ui/badges'
 import Button from "../../../components/ui/buttons"
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const categories = [
   {
@@ -103,19 +103,20 @@ const Filter = () => {
   } else {
     filteredItem = rfpItem.filter(item => item.category === activeCategory)
   }
-
   return (
     <div className="flex flex-col space-y-10">
-      <div className="flex justify-center flex-wrap gap-3">
-        <Button onClick={() => setActiveCategory('All')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'All' && 'bg-secondary'}`}>All</Button>
-        <Button onClick={() => setActiveCategory('Open')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Open' && 'bg-secondary'}`}>Open</Button>
-        <Button onClick={() => setActiveCategory('Funded')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Funded' && 'bg-secondary'}`}>Funded</Button>
-        <Button onClick={() => setActiveCategory('Completed')} btn={'ghost'} className={`text-white-500 ${activeCategory === 'Completed' && 'bg-secondary'}`}>Completed</Button>
+      <div className='flex justify-center'>
+        <div id='block' className="flex gap-3 snap-mandatory overflow-x-scroll scrollbar-none">
+          <Button onClick={() => setActiveCategory('All')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'All' && 'bg-secondary'}`}>All</Button>
+          <Button onClick={() => setActiveCategory('Open')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'Open' && 'bg-secondary'}`}>Open</Button>
+          <Button onClick={() => setActiveCategory('Funded')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'Funded' && 'bg-secondary'}`}>Funded</Button>
+          <Button onClick={() => setActiveCategory('Completed')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'Completed' && 'bg-secondary'}`}>Completed</Button>
+        </div>
       </div>
       <div className="flex flex-col space-y-6">
         {filteredItem.map((item) => {
           return (
-            <div key={item.id} className="flex justify-between items-start space-x-8 bg-secondary rounded-2xl p-6 max-[400px]:space-x-0 max-[400px]:space-y-8 max-[400px]:flex-col">
+            <div key={item.id} className="flex justify-between items-start space-x-8 bg-secondary rounded-2xl p-6 max-[400px]:space-x-0 max-[400px]:space-y-4 max-[400px]:flex-col">
               <div className="flex flex-col space-y-2">
                 <h2 className="heading-md text-white-100">{item.title}</h2>
                 <p className="paragraph-md text-white-100">{item.description}</p>
