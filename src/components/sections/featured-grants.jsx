@@ -2,6 +2,7 @@ import GrantCard from "../ui/card"
 import Sprite from './../../assets/sprite.svg'
 import Grid from './../../assets/grid.png'
 import Button from "../ui/buttons"
+import { Link } from "react-router-dom"
 
 export default function Grants() {
   return (
@@ -15,16 +16,18 @@ export default function Grants() {
                   <h2 className="heading-lg text-white-100">Projects built with grants</h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
                 </div>
-                <Button href="/" link={'sm'} text={'brand'} className="paragraph-lg flex items-center space-x-2">
-                  <span>View all funded projects</span>
-                  <svg className="w-6 h-6">
-                    <use xlinkHref={Sprite + '#fi_arrow-right'}/>
-                  </svg>
-                </Button>
+                <Link to='/grants'>
+                  <Button href="/" link={'sm'} text={'brand'} className="paragraph-lg flex items-center space-x-2">
+                    <span>View all funded projects</span>
+                    <svg className="w-6 h-6">
+                      <use xlinkHref={Sprite + '#fi_arrow-right'}/>
+                    </svg>
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="absolute top-0 min-w-[920px] h-full">
-              <img className="grid object-cover object-center h-full select-none" width={920} height={320} src={Grid} alt="grid" />
+              <img className="grid-img object-cover object-center h-full select-none" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
           <div className="relative overflow-x-hidden">

@@ -19,12 +19,6 @@ const Header = forwardRef((props, ref) => {
   useEffect(() => {
     window.scrollTo(0, 0)
   },[location])
-  // const [activePage, setActivePage] = useState('/')
-  // const handlePageClick = (link) => {
-  //   setActivePage(link)
-  //   console.log(activePage);
-  // }
-  console.log(location);
   return (
     <header className="w-full px-6 py-4 z-40 fixed bg-primary rounded-b-2xl">
       <div className="flex justify-between items-center">

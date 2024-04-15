@@ -95,7 +95,7 @@
   .tooltip:hover::after {
     @apply block;
   }
-  .grid {
+  .grid-img {
     mask-image: radial-gradient(rgba(0, 0, 0, 1) 10%, transparent 70%);
     -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 1) 10%, transparent 70%);
   }

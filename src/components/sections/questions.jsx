@@ -22,7 +22,7 @@ const Questions = () => {
               </div>
             </div>
             <div className="absolute top-0 min-w-[920px] h-full">
-              <img className="grid object-cover object-center h-full" width={920} height={320} src={Grid} alt="grid" />
+              <img className="grid-img object-cover object-center h-full" width={920} height={320} src={Grid} alt="grid" />
             </div>
           </div>
           <div className="max-lg:px-6">
