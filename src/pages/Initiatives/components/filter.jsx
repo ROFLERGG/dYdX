@@ -106,7 +106,7 @@ const Filter = () => {
   return (
     <div className="flex flex-col space-y-10">
       <div className='flex justify-center'>
-        <div id='block' className="flex gap-3 snap-mandatory overflow-x-scroll scrollbar-none">
+        <div className="flex gap-3 snap-mandatory overflow-x-scroll scrollbar-none">
           <Button onClick={() => setActiveCategory('All')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'All' && 'bg-secondary'}`}>All</Button>
           <Button onClick={() => setActiveCategory('Open')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'Open' && 'bg-secondary'}`}>Open</Button>
           <Button onClick={() => setActiveCategory('Funded')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'Funded' && 'bg-secondary'}`}>Funded</Button>
