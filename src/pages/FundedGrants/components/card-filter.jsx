@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Button from "../../../components/ui/buttons"
+import Check from "./../../../assets/sprite.svg"
+import Badge from "../../../components/ui/badges"
 
 const cardData = [
   {
@@ -105,7 +107,7 @@ const CardFilter = () => {
   //   filteredCard = cardData.filter(card => card.completed)
   // }
   return (
-    <div className="flex flex-col space-y-10">
+    <div className={`flex flex-col space-y-10`}>
       <div className="flex flex-col space-y-3">
         <div className='flex justify-start'>
           <div className="flex gap-3 snap-mandatory overflow-x-scroll scrollbar-none">
@@ -125,8 +127,8 @@ const CardFilter = () => {
           </label>
         </div>
       </div>
-      <div className="grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1">
-        {/* card */}
+      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 ${filteredCard.length === 0 && 'hidden'}`}>
+        {/* cards */}
         {filteredCard.map(({card, image, category, title, amount, description, users, completed}, index) => {
           return (
             <div id={index + 1} className="p-2 flex shrink-0">
@@ -149,12 +151,24 @@ const CardFilter = () => {
                     <p className="text-white-100 paragraph-md line-clamp-3">{description}</p>
                   </div>
                   {/* avatars */}
-                  <div className="flex items-center -space-x-4">
-                    {users.map(user => {
-                      return (
-                        <div className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full"></div>
-                      )
-                    })}
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center -space-x-4">
+                      {users.map(user => {
+                        return (
+                          <div className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full"></div>
+                        )
+                      })}
+                    </div>
+                    <div className="flex justify-center items-center">
+                      {completed === true &&
+                        <Badge variant={'success'} className={'space-x-2'}>
+                          <span className="paragraph-sm text-white-100">Completed</span>
+                          <svg className="w-5 h-5">
+                            <use xlinkHref={Check + "#fi_check"}/>
+                          </svg>
+                        </Badge>
+                      }
+                    </div>
                   </div>
                 </div>
               </a>
@@ -162,6 +176,11 @@ const CardFilter = () => {
           )
         })}
       </div>
+      {filteredCard.length === 0 &&
+        <div className="flex justify-center items-center">
+          <h2 className="heading-md text-white-500">Nothing found :(</h2>
+        </div>
+      }
     </div>
   )
 }
