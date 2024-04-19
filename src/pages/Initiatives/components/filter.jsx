@@ -1,25 +1,6 @@
 import Badge from './../../../components/ui/badges'
 import Button from "../../../components/ui/buttons"
-import { useEffect, useRef, useState } from 'react'
-
-const categories = [
-  {
-    id: 1,
-    title: 'All'
-  },
-  {
-    id: 2,
-    title: 'Open'
-  },
-  {
-    id: 3,
-    title: 'Funded'
-  },
-  {
-    id: 4,
-    title: 'Completed'
-  },
-]
+import { useState } from 'react'
 
 const rfpItem = [
   {
@@ -93,7 +74,6 @@ const rfpItem = [
     category: 'Funded'
   },
 ]
-
 const Filter = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
