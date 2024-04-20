@@ -2,94 +2,15 @@ import { useState } from "react"
 import Button from "../../../components/ui/buttons"
 import Check from "./../../../assets/sprite.svg"
 import Badge from "../../../components/ui/badges"
+import { Link } from "react-router-dom"
+import GrantData from "./../data/grant-data.json"
 
-const cardData = [
-  {
-    id: 1,
-    category: 'Technical / Tool Development',
-    title: 'Hedgie banner',
-    amount: '$5,000 - $6,000',
-    description: 'They can be used to deliver spacecraft to the ends of the solar system with hyper-pinpoint accuracy.',
-    users: ['1'],
-    completed: true
-  },
-  {
-    id: 2,
-    category: 'Technical / Tool Development',
-    title: 'Hedgie educational content',
-    amount: '$5,000 - $6,000',
-    description: 'They are mathematically consistent in the sense that no one rule would ever violate another.',
-    users: ['1', '2'],
-    completed: true
-  },
-  {
-    id: 3,
-    image: '/',
-    category: 'Governance',
-    title: 'Hedgie educational content',
-    amount: '$5,000 - $6,000',
-    description: 'This proved to be impossible using the traditional concepts of space and time. Einstein developed a new view of time first and then ...',
-    users: ['1', '2', '3', '4', '5', '6']
-  },
-  {
-    id: 4,
-    image: '/',
-    category: 'Governance',
-    title: 'Japanese content website',
-    amount: '$5,000 - $6,000',
-    description: 'Historically, the electron, for example, was thought to behave like a particle, and then it was found that in many respects it behaved like a ...',
-    users: ['1', '2', '3', '4']
-  },
-  {
-    id: 5,
-    category: 'Growth / Marketing',
-    title: 'DGP referral program',
-    amount: '$5,000 - $6,000',
-    description: 'They finally obtained a consistent description of the behavior of matter on a small scale.',
-    users: ['1', '2', '3']
-  },
-  {
-    id: 6,
-    image: '/',
-    category: 'Growth / Marketing',
-    title: 'ETHGlobal event sponsorship',
-    amount: '$5,000 - $6,000',
-    description: 'Because atomic behavior is so unlike ordinary experience, it is very difficult to get used to, and it appears peculiar and mysterious to everyon ...',
-    users: ['1'],
-    completed: true
-  },
-  {
-    id: 7,
-    category: 'Analytics',
-    title: 'Rust SDK',
-    amount: '$5,000 - $6,000',
-    description: 'At the end of the 19th century, physics appeared to be at an apex. Several people are reported to have said something like this',
-    users: ['1', '2', '3']
-  },
-  {
-    id: 8,
-    category: 'Analytics',
-    title: 'Hack for Inclusion Sponsorship',
-    amount: '$5,000 - $6,000',
-    description: 'Later, however (in the beginning of the twentieth century), it was found that light did indeed sometimes behave like a particle. ',
-    users: ['1', '2']
-  },
-  {
-    id: 9,
-    category: 'Third Party Provider',
-    title: 'Gitcoin Grants Round 13 sponsorship',
-    amount: '$5,000 - $6,000',
-    description: 'So we have to learn about them in a sort of abstract or imaginative fashion and not by connection with our direct experience.',
-    users: ['1'],
-    completed: true
-  }
-]
 
 const CardFilter = () => {
   const [activeCategory, setActiveCategory] = useState('All')
   const [showCompletedOnly, setShowCompletedOnly] = useState(false)
 
-  let filteredCard = cardData.filter(card => {
+  let filteredCard = GrantData.filter(card => {
     if (activeCategory !== 'All' && card.category !== activeCategory) {
       return false
     }
@@ -98,14 +19,6 @@ const CardFilter = () => {
     }
     return true
   })
-  // if (activeCategory === 'All') {
-  //   filteredCard = cardData;
-  // } else {
-  //   filteredCard = cardData.filter(card => card.category === activeCategory)
-  // }
-  // if (showCompletedOnly) {
-  //   filteredCard = cardData.filter(card => card.completed)
-  // }
   return (
     <div className={`flex flex-col space-y-10`}>
       <div className="flex flex-col space-y-3">
@@ -127,12 +40,12 @@ const CardFilter = () => {
           </label>
         </div>
       </div>
-      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 ${filteredCard.length === 0 && 'hidden'}`}>
+      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
         {/* cards */}
-        {filteredCard.map(({card, image, category, title, amount, description, users, completed}, index) => {
+        {filteredCard.map(({image, category, title, amount, description, team, completed, id}) => {
           return (
-            <div id={index + 1} className="p-2 flex shrink-0">
-              <a href='' className={`flex snap-center ${image && 'flex-col'} min-h-[400px] bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
+            <div className="p-2 flex shrink-0">
+              <Link to={`/grants/${id}`} className={`flex snap-center ${image && 'flex-col'} min-h-[400px] bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
                 {/* image */}
                 {image && 
                 <div className="w-full flex min-h-[180px] bg-[#232334] rounded-2xl"></div>
@@ -153,7 +66,7 @@ const CardFilter = () => {
                   {/* avatars */}
                   <div className="flex justify-between items-center">
                     <div className="flex items-center -space-x-4">
-                      {users.map(user => {
+                      {team.map(member => {
                         return (
                           <div className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full"></div>
                         )
@@ -171,13 +84,13 @@ const CardFilter = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           )
         })}
       </div>
       {filteredCard.length === 0 &&
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center min-h-[400px]">
           <h2 className="heading-md text-white-500">Nothing found :(</h2>
         </div>
       }

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Initiatives from './pages/Initiatives/Initiatives'
 import FundedGrants from './pages/FundedGrants/funded-grants'
+import GrantPage from './pages/FundedGrants/components/grant-page'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/initiatives" element={<Initiatives/>}/>
         <Route path="/grants" element={<FundedGrants/>}/>
+        <Route path="/grants/:id" element={<GrantPage/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
