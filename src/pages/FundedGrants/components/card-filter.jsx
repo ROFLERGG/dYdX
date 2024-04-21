@@ -3,7 +3,7 @@ import Button from "../../../components/ui/buttons"
 import Check from "./../../../assets/sprite.svg"
 import Badge from "../../../components/ui/badges"
 import { Link } from "react-router-dom"
-import GrantData from "./../data/grant-data.json"
+import GrantData from "../../../data/grant-data.json"
 
 
 const CardFilter = () => {
@@ -19,6 +19,8 @@ const CardFilter = () => {
     }
     return true
   })
+
+  // more avatars
   return (
     <div className={`flex flex-col space-y-10`}>
       <div className="flex flex-col space-y-3">
