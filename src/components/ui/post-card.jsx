@@ -1,44 +1,33 @@
-import Post8 from "./../../assets/post-images/image-block-8.png"
-import Post9 from "./../../assets/post-images/image-block-9.png"
+import { Link } from 'react-router-dom'
+import BlogData from '../../data/blog-data.json'
 
-const postData = [
-  {
-    image: Post9,
-    category: "Funding round",
-    title: "Round 9 of approvals",
-    date: "January 1, 2022",
-    url: "/"
-  },
-  {
-    image: Post8,
-    category: "Funding round",
-    title: "Round 8 of approvals",
-    date: "January 1, 2022",
-    url: "/"
-  }
-]
-
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
-    postData.map(({image, category, title, date, url}, index) => {
-      return (
-        <div className="px-6">
-          <a href={url} className={`flex ${image && "flex-col"} flex-1  max-w-[400px] h-[440px] max-lg:h-[380px] rounded-2xl bg-secondary hover:bg-secondaryHover duration-150 ease-in-out`}>
-            {image &&
-              <img src={image} alt={index + 1}/>
-            }
-            <div className="p-6 flex flex-1 flex-col justify-between">
-              <div className="flex flex-col space-y-2">
-                <p className="mono-paragraph-md text-white-500">{category}</p>
-                <h2 className="heading-md text-white-100">{title}</h2>
-              </div>
-              <p className="mono-paragraph-md text-white-500">{date}</p>
-            </div>
-          </a>
+    <Link to={`/blog/${post.id}`} className={`flex ${post.image && "flex-col"} flex-1 h-[440px] max-lg:h-full rounded-2xl bg-secondary hover:bg-secondaryHover duration-150 ease-in-out`}>
+      {post.image &&
+        <img src={`${post.image}`} alt={post.id}/>
+      }
+      <div className="p-6 flex flex-1 flex-col justify-between">
+        <div className="flex flex-col space-y-2">
+          <p className="mono-paragraph-md text-white-500">{post.category}</p>
+          <h2 className="heading-md text-white-100">{post.title}</h2>
         </div>
+        <p className="mono-paragraph-md text-white-500">{post.date}</p>
+      </div>
+    </Link>
+  )
+}
+
+const PostCards = () => {
+  return (
+    BlogData.map(( post ) => {
+      return (
+        <PostCard post={post} key={post.id}/>
       )
     })
   )
 }
 
-export default PostCard
+export {PostCard}
+
+export default PostCards

@@ -20,7 +20,6 @@ const CardFilter = () => {
     return true
   })
 
-  // more avatars
   return (
     <div className={`flex flex-col space-y-10`}>
       <div className="flex flex-col space-y-3">

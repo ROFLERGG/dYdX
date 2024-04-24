@@ -1,10 +1,12 @@
 import Grid from "./../../assets/grid.png"
 import Sprite from "./../../assets/sprite.svg"
 import Sparkle from "./../../assets/sparkle.svg"
-import PostCard from "../ui/post-card"
+import {PostCard} from "../ui/post-card"
 import Button from "../ui/buttons"
+import BlogData from "../../data/blog-data.json"
 
 const News = () => {
+  const lastPosts = BlogData.slice(-2).reverse()
   return (
     <div className="pb-[80px]">
       <div className="container max-lg:mx-0 max-lg:px-0">
@@ -34,11 +36,13 @@ const News = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="max-w-[800px]">
-              <div className="flex max-lg:flex-col max-lg:space-y-6">
-                {/* blog post */}
-                <PostCard/>
-              </div>
+            <div className="flex gap-6 max-w-[800px] max-md:flex-col max-lg:px-6">
+              {/* blog post */}
+              {lastPosts.map((post) => {
+                return (
+                  <PostCard post={post} key={post.id}/>
+                )
+              })}
             </div>
           </div>
         </div>

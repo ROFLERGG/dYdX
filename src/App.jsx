@@ -5,6 +5,9 @@ import NotFound from './pages/NotFound'
 import Initiatives from './pages/Initiatives/Initiatives'
 import FundedGrants from './pages/FundedGrants/funded-grants'
 import GrantPage from './pages/FundedGrants/components/grant-page'
+import ProgramExpenses from './pages/ProgramExpenses/program-expenses'
+import Blog from './pages/Blog/blog'
+import BlogPage from './pages/Blog/components/blog-page'
 
 function App() {
   return (
@@ -14,7 +17,11 @@ function App() {
         <Route path="/initiatives" element={<Initiatives/>}/>
         <Route path="/grants" element={<FundedGrants/>}/>
         <Route path="/grants/:id" element={<GrantPage/>}/>
+        <Route path="/expenses" element={<ProgramExpenses/>}/>
+        <Route path="/blog" element={<Blog/>}/>
+        <Route path="/blog/:id" element={<BlogPage/>}/>
         <Route path="*" element={<NotFound/>}/>
+        <Route path="/blog/*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   )
