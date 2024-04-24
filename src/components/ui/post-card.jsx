@@ -5,6 +5,7 @@ import Image from '/image-block-8.png'
 fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
   .then(res => res.json())
   .then(data => console.log(data))
+  .catch(err => console.log("ERROR"))
 
 const PostCard = ({ post }) => {
   return (
