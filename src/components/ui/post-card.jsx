@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom'
-import BlogData from '../../data/blog-data.json'
-import Image from '/image-block-8.png'
 
 let res = await fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
-let json = await res.json()
-console.log(json[0].image);
+let PostData = await res.json()
 
 const PostCard = ({ post }) => {
   return (
     <Link to={`/blog/${post.id}`} className={`flex ${post.image && "flex-col"} flex-1 h-[440px] max-lg:h-full rounded-2xl bg-secondary hover:bg-secondaryHover duration-150 ease-in-out`}>
-      <img src={Image} alt={post.id}/>
+      <img src={post.image} alt={post.id}/>
       <div className="p-6 flex flex-1 flex-col justify-between">
         <div className="flex flex-col space-y-2">
           <p className="mono-paragraph-md text-white-500">{post.category}</p>
@@ -23,7 +20,7 @@ const PostCard = ({ post }) => {
 
 const PostCards = () => {
   return (
-    BlogData.map(( post ) => {
+    PostData.map(( post ) => {
       return (
         <PostCard post={post} key={post.id}/>
       )
