@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom'
 import BlogData from '../../data/blog-data.json'
 import Image from '/image-block-8.png'
 
-fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.log("ERROR"))
+let res = await fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
+let json = await res.json()
+console.log(json[0].image);
 
 const PostCard = ({ post }) => {
   return (

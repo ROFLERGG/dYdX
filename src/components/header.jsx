@@ -26,13 +26,15 @@ const Header = forwardRef((props, ref) => {
           <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
         </NavLink>
         <div className="flex items-center space-x-3">
-          <ul className={`flex items-center max-lg:flex-col max-lg:justify-center max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:h-full max-lg:bg-secondary max-lg:space-y-6 duration-500 ease-in-out ${isOpen ? "max-lg:translate-x-0" : "max-lg:-translate-x-full"}`}>
-            <li><NavLink to="/initiatives"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/initiatives' ? '!text-white-100' : ''}`}>Discover initiatives</Button></NavLink></li>
-            <li><NavLink to="/grants"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/grants' ? '!text-white-100' : ''}`}>Funded grants</Button></NavLink></li>
-            <li><NavLink to="/expenses"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/expenses' ? '!text-white-100' : ''}`}>Program expenses</Button></NavLink></li>
-            <li><NavLink to="/blog"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/blog' ? '!text-white-100' : ''}`}>Blog</Button></NavLink></li>
-            <li><NavLink to="/faq"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/faq' ? '!text-white-100' : ''}`}>FAQ</Button></NavLink></li>
-          </ul>
+          <nav>
+            <ul className={`flex items-center max-lg:flex-col max-lg:justify-center max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:h-full max-lg:bg-secondary max-lg:space-y-6 duration-500 ease-in-out ${isOpen ? "max-lg:translate-x-0" : "max-lg:-translate-x-full"}`}>
+              <li><NavLink to="/initiatives"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/initiatives' ? '!text-white-100' : ''}`}>Discover initiatives</Button></NavLink></li>
+              <li><NavLink to="/grants"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/grants' ? '!text-white-100' : ''}`}>Funded grants</Button></NavLink></li>
+              <li><NavLink to="/expenses"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/expenses' ? '!text-white-100' : ''}`}>Program expenses</Button></NavLink></li>
+              <li><NavLink to="/blog"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/blog' ? '!text-white-100' : ''}`}>Blog</Button></NavLink></li>
+              <li><NavLink to="/faq"><Button link={'default'} text={'grey'} className={`mono-paragraph-md max-lg:mono-paragraph-xl whitespace-nowrap ${location.pathname === '/faq' ? '!text-white-100' : ''}`}>FAQ</Button></NavLink></li>
+            </ul>
+          </nav>
           <Button btn={'primary'} bg={'brand'} text={'white'} className={'label whitespace-nowrap z-40'}>Apply for grant</Button>
           <button onClick={toggleMenu} className="p-3 relative hidden max-lg:block">
             <svg className="w-6 h-6">

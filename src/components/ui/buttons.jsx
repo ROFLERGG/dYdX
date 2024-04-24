@@ -37,7 +37,11 @@ const buttonVariants = cva('cursor-pointer rounded-lg', {
 
 
 const Button = ({ link, btn, bg, text, href, className, ...rest }) => {
-  return <a href={href ? href : undefined} className={buttonVariants({ link, btn, bg, text, className })} {...rest}/>
+  if (href) {
+    return <a href={href} className={buttonVariants({ link, btn, bg, text, className })} {...rest}/>
+  } else {
+    return <button className={buttonVariants({ link, btn, bg, text, className })} {...rest}/>
+  }
 }
 
 export default Button
