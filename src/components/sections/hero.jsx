@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Button from "../ui/buttons"
-import DownArrow from "./../../assets/down-arrow.svg"
-import Underline from "./../../assets/underline.svg"
+import DownArrow from "../../assets/down-arrow.svg"
+import Underline from "../../assets/underline.svg"
 
 const Hero = () => {
   return (
