@@ -3,18 +3,10 @@ import Sprite from "./../../assets/sprite.svg"
 import Sparkle from "./../../assets/sparkle.svg"
 import {PostCard} from "../ui/post-card"
 import Button from "../ui/buttons"
-
-let PostData
-
-fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
-  .then(res => res.json())
-  .then(data => 
-    PostData = data
-  )
-  .catch(err => console.log("Error: ", err))
+import BlogData from "../../data/blog-data.json"
 
 const News = () => {
-  const lastPosts = PostData.slice(-2).reverse()
+  const lastPosts = BlogData.slice(-2).reverse()
   return (
     <div className="pb-[80px]">
       <div className="container max-lg:mx-0 max-lg:px-0">

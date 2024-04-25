@@ -8,7 +8,7 @@ import Sprite from "../../../assets/sprite.svg"
 const BlogPage = () => {
   const { id } = useParams();
 
-  // const post = BlogData.find(post => post.id == id)
+  const post = BlogData.find(post => post.id == id)
 
   return (
     <Layout>
