@@ -4,6 +4,7 @@ import Check from "./../../../assets/sprite.svg"
 import Badge from "../../../components/ui/badges"
 import { Link } from "react-router-dom"
 import GrantData from "../../../data/grant-data.json"
+import GrantCard from "../../../components/ui/card"
 
 
 const CardFilter = () => {
@@ -41,12 +42,12 @@ const CardFilter = () => {
           </label>
         </div>
       </div>
-      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
+      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 gap-4 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
         {/* cards */}
         {filteredCard.map(({image, category, title, amount, description, team, completed, id}) => {
           return (
-            <div className="p-2 flex shrink-0">
-              <Link to={`/grants/${id}`} className={`flex snap-center ${image && 'flex-col'} min-h-[400px] bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
+            <div className="flex shrink-0">
+              <Link to={`/grants/${id}`} className={`flex snap-center ${image && 'flex-col'} bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
                 {/* image */}
                 {image && 
                 <div className="w-full flex min-h-[180px] bg-[#232334] rounded-2xl"></div>
@@ -67,9 +68,9 @@ const CardFilter = () => {
                   {/* avatars */}
                   <div className="flex justify-between items-center">
                     <div className="flex items-center -space-x-4">
-                      {team.map(member => {
+                      {team.map((user, id) => {
                         return (
-                          <div className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full"></div>
+                          <div key={id} className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full">{id}</div>
                         )
                       })}
                     </div>

@@ -63,14 +63,14 @@ const AccordionButton = ({question, answer, id}) => {
   )
 }
 
-const FaqButton = () => {
+const FaqButtons = () => {
   return (
-    faqData.map(({question, answer}, id) => {
+    faqData.map(({question, answer, id}) => {
       return (
-        <AccordionButton question={question} answer={answer} id={id}/>
+        <AccordionButton question={question} answer={answer} id={id} key={id}/>
       )
     })
   )
 }
 
-export default FaqButton
+export default FaqButtons

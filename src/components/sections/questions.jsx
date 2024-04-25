@@ -1,6 +1,6 @@
 import Grid from "./../../assets/grid.png"
 import Oval from "./../../assets/oval.png"
-import FaqButton from "../ui/faq-button"
+import FaqButtons from "../ui/faq-button"
 
 const Questions = () => {
   return (
@@ -27,7 +27,7 @@ const Questions = () => {
           </div>
           <div className="max-lg:px-6">
             <div className="flex flex-col border-t border-b border-subtle divide-y divide-subtle">
-              <FaqButton/>
+              <FaqButtons/>
             </div>
           </div>
         </div>
