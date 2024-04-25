@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 
-let res = await fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
-let PostData = await res.json()
+let PostData
+
+fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
+  .then(res => res.json())
+  .then(data => 
+    PostData = data
+  )
+  .catch(err => console.log("Error: ", err))
 
 const PostCard = ({ post }) => {
   return (
