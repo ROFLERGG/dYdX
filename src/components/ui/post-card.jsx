@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import BlogData from '../../data/blog-data.json'
 import Image from '/image-block-8.png'
 
-let res = await fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
+fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
 let json = await res.json()
 console.log(json[0].image);
 
