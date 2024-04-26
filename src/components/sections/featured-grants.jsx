@@ -3,8 +3,26 @@ import Sprite from './../../assets/sprite.svg'
 import Grid from './../../assets/grid.png'
 import Button from "../ui/buttons"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 const Grants = () => {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
+    .then(res => res.json())
+    .then(data => {
+      setData(data)
+      setLoading(false)
+    })
+    .catch(err => console.log('Error: ', err))
+  },[])
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div className="pb-[80px]">
       <div className="container max-lg:mx-0 max-lg:px-0">
@@ -32,7 +50,11 @@ const Grants = () => {
           </div>
           <div className="relative overflow-x-hidden">
             <div className="snap-x snap-mandatory overflow-x-scroll scrollbar-none flex">
-              <GrantCard/>
+              {data.map(post => {
+                return (
+                  <GrantCard key={post.id} className="px-6 max-w-[460px] max-sm:max-w-[400px] max-[460px]:max-w-[360px]" {...post} />
+                )
+              })}
             </div>
           </div>
         </div>

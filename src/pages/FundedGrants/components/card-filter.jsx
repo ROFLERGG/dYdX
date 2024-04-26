@@ -42,52 +42,11 @@ const CardFilter = () => {
           </label>
         </div>
       </div>
-      <div className={`grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 gap-4 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
+      <div className={`grid grid-cols-4 auto-rows-fr max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 gap-4 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
         {/* cards */}
-        {filteredCard.map(({image, category, title, amount, description, team, completed, id}) => {
+        {filteredCard.map((post) => {
           return (
-            <div className="flex shrink-0">
-              <Link to={`/grants/${id}`} className={`flex snap-center ${image && 'flex-col'} bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
-                {/* image */}
-                {image && 
-                <div className="w-full flex min-h-[180px] bg-[#232334] rounded-2xl"></div>
-                }
-                {/* content */}
-                <div className="p-6 flex flex-1 flex-col justify-between space-y-4">
-                  <div className="flex flex-col space-y-4">
-                    <div className="flex flex-col space-y-2">
-                      <p className="text-tertiary mono-paragraph-md">{category}</p>
-                      <p className="text-white-100 heading-md">{title}</p>
-                      <p className="text-tertiary mono-paragraph-md flex flex-wrap gap-2 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-2">
-                        <span>Funding amount:</span>
-                        <span>{amount}</span>
-                      </p>
-                    </div>
-                    <p className="text-white-100 paragraph-md line-clamp-3">{description}</p>
-                  </div>
-                  {/* avatars */}
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center -space-x-4">
-                      {team.map((user, id) => {
-                        return (
-                          <div key={id} className="w-[40px] h-[40px] bg-secondaryHover ring-2 ring-secondary rounded-full">{id}</div>
-                        )
-                      })}
-                    </div>
-                    <div className="flex justify-center items-center">
-                      {completed === true &&
-                        <Badge variant={'success'} className={'space-x-2'}>
-                          <span className="paragraph-sm text-white-100">Completed</span>
-                          <svg className="w-5 h-5">
-                            <use xlinkHref={Check + "#fi_check"}/>
-                          </svg>
-                        </Badge>
-                      }
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <GrantCard key={post.id}  {...post} />
           )
         })}
       </div>
