@@ -4,9 +4,14 @@ import BlogData from "../../../data/blog-data.json"
 import Badge from "../../../components/ui/badges"
 import Button from "../../../components/ui/buttons"
 import Sprite from "../../../assets/sprite.svg"
+import { useEffect } from "react"
 
 const BlogPage = () => {
   const { id } = useParams();
+
+  useEffect(() => {
+    fetch('')
+  },[])
 
   const post = BlogData.find(post => post.id == id)
 

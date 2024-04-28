@@ -50,7 +50,7 @@ const Grants = () => {
           </div>
           <div className="relative overflow-x-hidden">
             <div className="snap-x snap-mandatory overflow-x-scroll scrollbar-none flex">
-              {data.map(post => {
+              {data.slice(0, 4).map(post => {
                 return (
                   <GrantCard key={post.id} className="px-6 max-w-[460px] max-sm:max-w-[400px] max-[460px]:max-w-[360px]" {...post} />
                 )
