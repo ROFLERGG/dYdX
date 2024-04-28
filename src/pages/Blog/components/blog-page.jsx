@@ -1,20 +1,31 @@
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import Layout from "../../../components/layout"
-import BlogData from "../../../data/blog-data.json"
-import Badge from "../../../components/ui/badges"
-import Button from "../../../components/ui/buttons"
-import Sprite from "../../../assets/sprite.svg"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const BlogPage = () => {
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const { id } = useParams();
-
+  
   useEffect(() => {
-    fetch('')
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
+    .then(res => res.json())
+    .then(data => {
+      const postData = data.find(post => post.id == id)
+      if (postData) {
+        setTimeout(() => {
+          setData(postData)
+          setIsLoading(false)
+        }, 1000);
+      } else {
+        return errorPage
+      }
+    })
+    .catch(err => {
+      console.log("Error: ", err)
+    })
   },[])
-
-  const post = BlogData.find(post => post.id == id)
-
+  
   return (
     <Layout>
       <div className="py-[80px] max-lg:py-[40px]">
@@ -24,8 +35,8 @@ const BlogPage = () => {
               <div className="flex justify-center">
                 <div className="flex flex-col space-y-10 max-lg:space-y-5">
                   <div className="flex flex-col items-center">
-                    <span className="mono-paragraph-md text-white-500">category</span>
-                    <h2 className="heading-xl text-white-100">asdasdasdasd</h2>
+                    <span className="mono-paragraph-md text-white-500">{data.title}</span>
+                    <h2 className="heading-xl text-white-100"></h2>
                   </div>
                   {/* by */}
                   <div className="flex justify-center">

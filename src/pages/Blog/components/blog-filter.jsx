@@ -1,20 +1,40 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../../../components/ui/buttons"
 import BlogData from "../../../data/blog-data.json"
 import Sprite from "../../../assets/sprite.svg"
 import { Link } from "react-router-dom"
 import { PostCard } from "../../../components/ui/post-card"
+import Skeleton from "./skeleton"
 
 const BlogFilter = () => {
   const [activeCategory, setActiveCategory] = useState("Latest")
-  let filteredPost = BlogData.filter(item => {
+  const [showMoreItems, setShowMoreItems] = useState(6)
+  const [loadMoreActive, setLoadMoreActive] = useState(false)
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data) {
+        setTimeout(() => {
+          setData(data)
+          setIsLoading(false)
+        }, 1000);
+      }
+    })
+    .catch(err => {
+      console.log("Error: ", err)
+    })
+  },[])
+
+  let filteredPost = data.filter(item => {
     if (activeCategory !== 'Latest' && item.category !== activeCategory) {
       return false
     }
     return true
   })
-  const [showMoreItems, setShowMoreItems] = useState(6)
-  const [loadMoreActive, setLoadMoreActive] = useState(false)
   const loadMore = () => {
     setLoadMoreActive(true)
     setTimeout(() => {
@@ -33,6 +53,9 @@ const BlogFilter = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+        {isLoading &&
+          Array(6).fill(<Skeleton/>)
+        }
         {filteredPost.reverse().slice(0, showMoreItems).map((item) => {
           return (
             <PostCard post={item} key={item.id}/>

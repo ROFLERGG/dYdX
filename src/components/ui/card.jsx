@@ -40,7 +40,7 @@ import { Link } from "react-router-dom"
 //     users: ['1','2','3']
 //   }
 // ]
-const GrantCard = ({ id, image, category, title, amount, description, team, className=""  }) => {
+const GrantCard = ({ id, image, category, title, amount, description, team, className="" }) => {
   return (
     <div key={id} className={"flex shrink-0 " + className}>
       <Link to={`/grants/${id}`} className={`flex snap-center ${image ? 'flex-col' : ''} bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
