@@ -1,23 +1,44 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../../../components/ui/buttons"
 import ExpensesData from "../../../data/program-expenses.json"
 import Sprite from "../../../assets/sprite.svg"
+import Skeleton from "./skeleton"
 
 const ExpensesFilter = () => {
   const [activeCategory, setActiveCategory] = useState("All")
-  let filteredItem = ExpensesData.filter(item => {
+  const [showMoreItems, setShowMoreItems] = useState(6)
+  const [loadMoreIsActive, setLoadMoreIsActive] = useState(false)
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/program-expenses.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data) {
+        setTimeout(() => {
+          setData(data)
+          setIsLoading(false)
+        }, 1000);
+      }
+    })
+    .catch(err => 
+      console.log("Error: ", err)
+    )
+  },[])
+
+  let filteredItem = data.filter(item => {
     if (activeCategory !== 'All' && item.category !== activeCategory) {
       return false
     }
     return true
   })
-  const [showMoreItems, setShowMoreItems] = useState(6)
-  const [loadMoreActive, setLoadMoreActive] = useState(false)
+  
   const loadMore = () => {
-    setLoadMoreActive(true)
+    setLoadMoreIsActive(true)
     setTimeout(() => {
       setShowMoreItems(prev => prev + 3)
-      setLoadMoreActive(false)
+      setLoadMoreIsActive(false)
     }, 1000);
   }
   return (
@@ -32,36 +53,39 @@ const ExpensesFilter = () => {
         </div>
       </div>
       <div className="flex flex-col space-y-6">
+        {isLoading &&
+          Array(6).fill(<Skeleton/>)
+        }
         {filteredItem.slice(0, showMoreItems).map((item) => {
           return (
-            <a key={item.id} href={'/'} className='flex justify-between items-start p-6 bg-secondary hover:bg-secondaryHover duration-150 ease-in-out rounded-2xl gap-8 max-[500px]:flex-col'>
+            <div key={item.id} href={'/'} className='flex justify-between items-start p-6 bg-secondary hover:bg-secondaryHover duration-150 ease-in-out rounded-2xl gap-8 max-[500px]:flex-col'>
               <div className="flex flex-col space-y-4">
                 <div className="flex flex-col space-y-2">
-                  <span className="mono-paragraph-md text-white-500">{item.category}</span>
-                  <h2 className="heading-sm text-white-100">{item.title}</h2>
-                  <span className="mono-paragraph-md text-white-500">{item.date}</span>
+                  <span className="mono-paragraph-md text-white-500 w-fit">{item.category}</span>
+                  <h2 className="heading-sm text-white-100 w-fit">{item.title}</h2>
+                  <span className="mono-paragraph-md text-white-500 w-fit">{item.date}</span>
                 </div>
-                <p className="paragraph-md text-white-100">{item.description}</p>
+                <p className="paragraph-md text-white-100 w-fit">{item.description}</p>
               </div>
               <div className="flex items-center space-x-4">
-                <span className="mono-paragraph-md text-white-500 text-nowrap">{item.amount}</span>
+                <span className="mono-paragraph-md text-white-500 text-nowrap w-fit">{item.amount}</span>
                 <svg className="w-4 h-4">
                   <use xlinkHref={Sprite + "#fi_external-link"} />
                 </svg>
               </div>
-            </a>
+            </div>
           )
         })}
       </div>
       {showMoreItems >= filteredItem.length ? null :
         <div className="flex justify-center">
-          <Button onClick={loadMore} btn={'secondary'} bg={'secondary'} text={'white'} className={`flex items-center ${loadMoreActive ? 'space-x-3' : ''}`}>
-            {loadMoreActive &&
+          <Button onClick={loadMore} btn={'secondary'} bg={'secondary'} text={'white'} className={`flex items-center ${loadMoreIsActive ? 'space-x-3' : ''}`}>
+            {loadMoreIsActive &&
               <svg className="w-6 h-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="#C8C7D8" d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
               </svg>
             }
-            {loadMoreActive ? null :
+            {loadMoreIsActive ? null :
               <span className={`label`}>Load more</span>
             }
           </Button>

@@ -17,8 +17,6 @@ const BlogPage = () => {
           setData(postData)
           setIsLoading(false)
         }, 1000);
-      } else {
-        return errorPage
       }
     })
     .catch(err => {
