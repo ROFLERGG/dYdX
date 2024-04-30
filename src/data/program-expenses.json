@@ -1,82 +1,72 @@
 [
   {
     "id": 1,
-    "category": "Category1",
-    "title": "Title 1",
-    "date": "123",
-    "description": "Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis",
-    "amount": "$500.00"
+    "title": "Funding Rate Page",
+    "description": "Page that provides a live look at all funding rates with popular timeframes in annualized format",
+    "amount": "$45,000 - $85,000",
+    "category": "Funded"
   },
   {
     "id": 2,
-    "category": "Category1",
-    "title": "Title 2",
-    "date": "321",
-    "description": "Tortor id aliquet lectus proin nibh nisl condimentum id venenatis",
-    "amount": "$-5,198.37 USDC"
+    "title": "CLI Trading Tool",
+    "description": "Self-hosted CLI tool leveraging the dYdX API to allow all functionalities from a terminal",
+    "amount": "$25,000 - $40,000",
+    "category": "Funded"
   },
   {
     "id": 3,
-    "category": "Category2",
-    "title": "Title 3",
-    "date": "456",
-    "description": "Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum",
-    "amount": "$-3,690.00 USDC"
+    "title": "New Language SDKs",
+    "description": "Replicate existing Python SDK to new programming languages with all the same features",
+    "amount": "$25,000 - $40,000",
+    "category": "Open"
   },
   {
     "id": 4,
-    "category": "Category2",
-    "title": "Title 4",
-    "date": "654",
-    "description": "Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi",
-    "amount": "$3,672.00 USDC"
+    "title": "Liquidation Alert Tool",
+    "description": "Self-hosted tool that alerts the trader of upcoming liquidation prices across multiple messaging venues",
+    "amount": "$30,000 - $50,000",
+    "category": "Completed"
   },
   {
     "id": 5,
-    "category": "Category3",
-    "title": "Title 5",
-    "date": "789",
-    "description": "Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed",
-    "amount": "$8,200.64 USDC"
+    "title": "Governance Dashboard",
+    "description": "Governance page to promote  discussions, proposals, delegation and voting",
+    "amount": "$15,000 - $30,000",
+    "category": "Funded"
   },
   {
     "id": 6,
-    "category": "Category3",
-    "title": "Title 6",
-    "date": "987",
-    "description": "Dui faucibus in ornare quam viverra orci sagittis eu volutpat",
-    "amount": "$4,000.00 USDC"
+    "title": "Delegation Tool",
+    "description": "Webpage to allow active participants to market their voting and enable direct delegation from DYDX holders",
+    "amount": "$15,000 - $30,000",
+    "category": "Funded"
   },
   {
     "id": 7,
-    "category": "Category4",
-    "title": "Title 7",
-    "date": "135",
-    "description": "Convallis a cras semper auctor neque vitae tempus quam pellentesque",
-    "amount": "$6,067.29 USDC"
+    "title": "Newsletter",
+    "description": "Weekly or Monthly newsletters promoting and educating the dYdX platform",
+    "amount": "$10,000 - $20,000",
+    "category": "Funded"
   },
   {
     "id": 8,
-    "category": "Category5",
-    "title": "Title 8",
-    "date": "531",
-    "description": "Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus",
-    "amount": "$3,228.00 USDC"
+    "title": "Academy Contributions",
+    "description": "Webpages, Courses, Glossaries and Youtube libraries educating new users on dYdX",
+    "amount": "$10,000 - $25,000",
+    "category": "Funded"
   },
   {
     "id": 9,
-    "category": "Category5",
-    "title": "Title 9",
-    "date": "246",
-    "description": "Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt",
-    "amount": "$5,198.37 USDC"
+    "title": "Discord bots",
+    "description": "Additional Discord bots that notify members of activity on dYdX and governance",
+    "amount": "$5,000 - $10,000",
+    "category": "Open"
   },
   {
     "id": 10,
-    "category": "Category5",
-    "title": "Title 10",
-    "date": "642",
-    "description": "Ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet",
-    "amount": "$198.37 USDC"
-  }
+    "title": "Reward tracking & Simulator",
+    "description": "Page or tool that allows traders to calculate future rewards and simulate earnings from activity",
+    "amount": "$20,000 - $30,000",
+    "category": "Funded"
+  },
 ]
