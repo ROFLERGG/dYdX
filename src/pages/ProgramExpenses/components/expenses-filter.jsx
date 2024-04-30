@@ -54,11 +54,15 @@ const ExpensesFilter = () => {
       </div>
       <div className="flex flex-col space-y-6">
         {isLoading &&
-          Array(6).fill(<Skeleton/>)
+          Array(6).fill(0).map((_, id) => {
+            return (
+              <Skeleton key={id}/>
+            )
+          })
         }
         {filteredItem.slice(0, showMoreItems).map((item) => {
           return (
-            <div key={item.id} className='flex justify-between items-start p-6 bg-secondary hover:bg-secondaryHover duration-150 ease-in-out rounded-2xl gap-8 max-[500px]:flex-col'>
+            <div key={item.id} className='flex justify-between items-start p-6 bg-secondary rounded-2xl gap-8 max-[500px]:flex-col'>
               <div className="flex flex-col space-y-4">
                 <div className="flex flex-col space-y-2">
                   <span className="mono-paragraph-md text-white-500 w-fit">{item.category}</span>
@@ -67,12 +71,12 @@ const ExpensesFilter = () => {
                 </div>
                 <p className="paragraph-md text-white-100 w-fit">{item.description}</p>
               </div>
-              <div className="flex items-center space-x-4">
+              <a href="/expenses" className="flex items-center space-x-4 px-2 py-1 rounded-full hover:bg-secondaryHover duration-150 ease-in-out box-content">
                 <span className="mono-paragraph-md text-white-500 text-nowrap w-fit">{item.amount}</span>
                 <svg className="w-4 h-4">
                   <use xlinkHref={Sprite + "#fi_external-link"} />
                 </svg>
-              </div>
+              </a>
             </div>
           )
         })}

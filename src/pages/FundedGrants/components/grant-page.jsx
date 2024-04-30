@@ -4,11 +4,30 @@ import GrantData from "../../../data/grant-data.json"
 import Badge from "../../../components/ui/badges"
 import Button from "../../../components/ui/buttons"
 import Sprite from "../../../assets/sprite.svg"
+import { useState } from "react"
 
 const GrantPage = () => {
-  const { id } = useParams();
+  const { id } = useParams()
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const post = GrantData.find(post => post.id == id)
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data) {
+        setTimeout(() => {
+          setData(data)
+          setIsLoading(false)
+        }, 500);
+      }
+    })
+    .catch(err => 
+      console.log("Error: ", err)
+    )
+  },[])
+  
+  const post = data.find(post => post.id == id)
 
   return (
     <Layout>

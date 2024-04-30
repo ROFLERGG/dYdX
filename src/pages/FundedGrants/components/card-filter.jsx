@@ -65,14 +65,14 @@ const CardFilter = () => {
         {isLoading &&
           Array(6).fill(0).map((_, id) => {
             return (
-              <Skeleton/>
+              <Skeleton key={id}/>
             )
           })
         }
         {/* cards */}
         {filteredCard.map((post) => {
           return (
-            <GrantCard className="" key={post.id}  {...post} />
+            <GrantCard key={post.id}  {...post} />
           )
         })}
       </div>
