@@ -1,6 +1,6 @@
 import Badge from './../../../components/ui/badges'
 import Button from "../../../components/ui/buttons"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const rfpItem = [
   {
@@ -76,6 +76,22 @@ const rfpItem = [
 ]
 const Filter = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('')
+    .then(res => res.json())
+    .then(data => {
+      if (data) {
+        setTimeout(() => {
+          setData(data)
+          setIsLoading(false)
+        }, 500);
+      }
+    })
+    .catch(err => console.log("Error: ", err))
+  },[])
 
   let filteredItem
   if (activeCategory === "All") {
@@ -98,8 +114,8 @@ const Filter = () => {
           return (
             <div key={item.id} className="flex justify-between items-start space-x-8 bg-secondary rounded-2xl p-6 max-[400px]:space-x-0 max-[400px]:space-y-4 max-[400px]:flex-col">
               <div className="flex flex-col space-y-2">
-                <h2 className="heading-md text-white-100">{item.title}</h2>
-                <p className="paragraph-md text-white-100">{item.description}</p>
+                <h2 className="heading-md text-white-100 w-fit">{item.title}</h2>
+                <p className="paragraph-md text-white-100 w-fit">{item.description}</p>
                 <div className="flex items-center space-x-2 mono-paragraph-md max-sm:flex-col max-sm:space-x-0 max-sm:space-y-2 max-sm:items-start">
                   <p className="text-white-500">Funding amount:</p>
                   <p className="text-white-500"> {item.amount}</p>

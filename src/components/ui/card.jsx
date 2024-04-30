@@ -42,24 +42,24 @@ import { Link } from "react-router-dom"
 // ]
 const GrantCard = ({ id, image, category, title, amount, description, team, className="" }) => {
   return (
-    <div key={id} className={"flex shrink-0 " + className}>
-      <Link to={`/grants/${id}`} className={`flex snap-center ${image ? 'flex-col' : ''} bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
+    <div key={id} className={"flex shrink-0 min-h-[500px] " + className}>
+      <Link to={`/grants/${id}`} className={`flex snap-center ${image ? 'flex-col' : ''} flex-1 bg-secondary rounded-2xl hover:bg-secondaryHover duration-150 ease-in-out`}>
         {/* image */}
         {image && 
-        <div className="w-full h-[180px] bg-[#232334] rounded-2xl"></div>
+        <div className="w-full min-h-[180px] bg-[#232334] rounded-2xl"></div>
         }
         {/* content */}
         <div className="p-6 flex flex-1 flex-col justify-between space-y-4">
           <div className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
-              <p className="text-tertiary mono-paragraph-md">{category}</p>
-              <p className="text-white-100 heading-md">{title}</p>
+              <p className="text-tertiary mono-paragraph-md w-fit">{category}</p>
+              <p className="text-white-100 heading-md w-fit">{title}</p>
               <p className="text-tertiary mono-paragraph-md flex space-x-2 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-2">
                 <span>Funding amount:</span>
                 <span>{amount}</span>
               </p>
             </div>
-            <p className="text-white-100 paragraph-md">{description}</p>
+            <p className="text-white-100 paragraph-md w-fit">{description}</p>
           </div>
           {/* avatars */}
           <div className="flex items-center -space-x-4">

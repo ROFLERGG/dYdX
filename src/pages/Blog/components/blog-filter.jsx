@@ -21,7 +21,7 @@ const BlogFilter = () => {
         setTimeout(() => {
           setData(data)
           setIsLoading(false)
-        }, 1000);
+        }, 500);
       }
     })
     .catch(err => {
@@ -52,9 +52,11 @@ const BlogFilter = () => {
           <Button onClick={() => setActiveCategory('News & updates')} btn={'ghost'} className={`text-white-500 shrink-0 snap-start ${activeCategory === 'News & updates' ? '!text-white-100 bg-secondary' : ''}`}>News & updates</Button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+      <div className="grid grid-cols-2 gap-6 max-sm:grid-cols-1">
         {isLoading &&
-          Array(6).fill(<Skeleton/>)
+          Array(6).fill(0).map((_, id) => (
+            <Skeleton key={id}/>
+          ))
         }
         {filteredPost.reverse().slice(0, showMoreItems).map((item) => {
           return (

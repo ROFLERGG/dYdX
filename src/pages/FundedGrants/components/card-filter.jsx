@@ -1,17 +1,36 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../../../components/ui/buttons"
 import Check from "./../../../assets/sprite.svg"
 import Badge from "../../../components/ui/badges"
 import { Link } from "react-router-dom"
 import GrantData from "../../../data/grant-data.json"
 import GrantCard from "../../../components/ui/card"
+import Skeleton from "./skeleton"
 
 
 const CardFilter = () => {
   const [activeCategory, setActiveCategory] = useState('All')
   const [showCompletedOnly, setShowCompletedOnly] = useState(false)
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  let filteredCard = GrantData.filter(card => {
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data) {
+        setTimeout(() => {
+          setData(data)
+          setIsLoading(false)
+        }, 500);
+      }
+    })
+    .catch(err => 
+      console.log("Error: ", err)
+    )
+  },[])
+
+  let filteredCard = data.filter(card => {
     if (activeCategory !== 'All' && card.category !== activeCategory) {
       return false
     }
@@ -42,15 +61,22 @@ const CardFilter = () => {
           </label>
         </div>
       </div>
-      <div className={`grid grid-cols-4 auto-rows-fr max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-sm:grid-cols-1 gap-4 ${filteredCard.length === 0 ? 'hidden' : ''}`}>
+      <div className={`grid grid-cols-4 auto-rows-fr max-[1600px]:grid-cols-3 max-[1200px]:grid-cols-2 max-md:grid-cols-1 gap-4 ${(filteredCard.length === 0 && !isLoading) ? 'hidden' : ''}`}>
+        {isLoading &&
+          Array(6).fill(0).map((_, id) => {
+            return (
+              <Skeleton/>
+            )
+          })
+        }
         {/* cards */}
         {filteredCard.map((post) => {
           return (
-            <GrantCard key={post.id}  {...post} />
+            <GrantCard className="" key={post.id}  {...post} />
           )
         })}
       </div>
-      {filteredCard.length === 0 &&
+      {filteredCard.length === 0 && !isLoading &&
         <div className="flex justify-center items-center min-h-[400px]">
           <h2 className="heading-md text-white-500">Nothing found :(</h2>
         </div>

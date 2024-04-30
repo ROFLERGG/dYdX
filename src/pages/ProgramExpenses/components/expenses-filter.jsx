@@ -19,7 +19,7 @@ const ExpensesFilter = () => {
         setTimeout(() => {
           setData(data)
           setIsLoading(false)
-        }, 1000);
+        }, 500);
       }
     })
     .catch(err => 
@@ -58,7 +58,7 @@ const ExpensesFilter = () => {
         }
         {filteredItem.slice(0, showMoreItems).map((item) => {
           return (
-            <div key={item.id} href={'/'} className='flex justify-between items-start p-6 bg-secondary hover:bg-secondaryHover duration-150 ease-in-out rounded-2xl gap-8 max-[500px]:flex-col'>
+            <div key={item.id} className='flex justify-between items-start p-6 bg-secondary hover:bg-secondaryHover duration-150 ease-in-out rounded-2xl gap-8 max-[500px]:flex-col'>
               <div className="flex flex-col space-y-4">
                 <div className="flex flex-col space-y-2">
                   <span className="mono-paragraph-md text-white-500 w-fit">{item.category}</span>

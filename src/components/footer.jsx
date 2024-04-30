@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="w-full py-[60px] max-lg:py-[30px]">
+    <footer className="w-full py-[30px]">
       <div className="container">
         <div className="flex justify-between items-center max-lg:flex-col max-lg:items-start max-lg:space-y-8">
           <div className="flex items-center space-x-8 max-lg:flex-col max-lg:items-start max-lg:space-x-0 max-lg:space-y-8">
