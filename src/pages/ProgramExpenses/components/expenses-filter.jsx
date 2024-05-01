@@ -1,31 +1,15 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Button from "../../../components/ui/buttons"
-import ExpensesData from "../../../data/program-expenses.json"
 import Sprite from "../../../assets/sprite.svg"
 import Skeleton from "./skeleton"
+import useFetch from "../../../hooks/useFetch"
 
 const ExpensesFilter = () => {
   const [activeCategory, setActiveCategory] = useState("All")
   const [showMoreItems, setShowMoreItems] = useState(6)
   const [loadMoreIsActive, setLoadMoreIsActive] = useState(false)
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/program-expenses.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data) {
-        setTimeout(() => {
-          setData(data)
-          setIsLoading(false)
-        }, 500);
-      }
-    })
-    .catch(err => 
-      console.log("Error: ", err)
-    )
-  },[])
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/program-expenses.json'
+  const { data, isLoading } = useFetch(url)
 
   let filteredItem = data.filter(item => {
     if (activeCategory !== 'All' && item.category !== activeCategory) {

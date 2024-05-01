@@ -2,26 +2,13 @@ import Badge from './../../../components/ui/badges'
 import Button from "../../../components/ui/buttons"
 import { useEffect, useState } from 'react'
 import Skeleton from './skeleton';
+import useFetch from '../../../hooks/useFetch';
 
 
 const Filter = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/initiatives-data.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data) {
-        setTimeout(() => {
-          setData(data)
-          setIsLoading(false)
-        }, 500);
-      }
-    })
-    .catch(err => console.log("Error: ", err))
-  },[])
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/initiatives-data.json'
+  const { data, isLoading } = useFetch(url)
 
   let filteredItem
   if (activeCategory === "All") {

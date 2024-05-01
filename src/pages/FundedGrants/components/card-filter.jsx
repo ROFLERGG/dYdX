@@ -6,29 +6,14 @@ import { Link } from "react-router-dom"
 import GrantData from "../../../data/grant-data.json"
 import GrantCard from "../../../components/ui/card"
 import Skeleton from "./skeleton"
+import useFetch from "../../../hooks/useFetch"
 
 
 const CardFilter = () => {
   const [activeCategory, setActiveCategory] = useState('All')
   const [showCompletedOnly, setShowCompletedOnly] = useState(false)
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data) {
-        setTimeout(() => {
-          setData(data)
-          setIsLoading(false)
-        }, 500);
-      }
-    })
-    .catch(err => 
-      console.log("Error: ", err)
-    )
-  },[])
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json'
+  const { data, isLoading } = useFetch(url)
 
   let filteredCard = data.filter(card => {
     if (activeCategory !== 'All' && card.category !== activeCategory) {

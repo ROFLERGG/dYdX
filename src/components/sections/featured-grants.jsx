@@ -4,24 +4,11 @@ import Grid from './../../assets/grid.png'
 import Button from "../ui/buttons"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import useFetch from "../../hooks/useFetch"
 
 const Grants = () => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
-    .then(res => res.json())
-    .then(data => {
-      setData(data)
-      setLoading(false)
-    })
-    .catch(err => console.log('Error: ', err))
-  },[])
-
-  if (loading) {
-    return <p>Loading...</p>
-  }
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json'
+  const { data, isLoading } = useFetch(url)
 
   return (
     <div className="pb-[80px]">

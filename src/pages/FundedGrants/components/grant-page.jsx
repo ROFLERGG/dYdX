@@ -1,34 +1,20 @@
 import { useParams } from "react-router-dom"
 import Layout from "../../../components/layout"
-import GrantData from "../../../data/grant-data.json"
 import Badge from "../../../components/ui/badges"
 import Button from "../../../components/ui/buttons"
 import Sprite from "../../../assets/sprite.svg"
-import { useState } from "react"
+import useFetch from "../../../hooks/useFetch"
 
 const GrantPage = () => {
   const { id } = useParams()
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data) {
-        setTimeout(() => {
-          setData(data)
-          setIsLoading(false)
-        }, 500);
-      }
-    })
-    .catch(err => 
-      console.log("Error: ", err)
-    )
-  },[])
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json'
+  const { data, isLoading } = useFetch(url)
   
   const post = data.find(post => post.id == id)
 
+  if (!post) {
+    return null
+  }
   return (
     <Layout>
       <div className="py-[80px] max-lg:py-[40px]">
@@ -85,9 +71,9 @@ const GrantPage = () => {
                   <div className="flex flex-col space-y-4">
                     <h2 className="heading-sm text-white-100">Team</h2>
                     <div className="flex items-center flex-wrap gap-4">
-                      {post.team.map((member) => {
+                      {post.team.map((member, index) => {
                         return (
-                          <div className="p-2 bg-secondary rounded-full flex items-center space-x-4">
+                          <div key={index} className="p-2 bg-secondary rounded-full flex items-center space-x-4">
                             <div className="w-10 h-10 bg-secondaryHover rounded-full"></div>
                             <span className="pr-4 label text-white-100">{member}</span>
                           </div>
@@ -125,9 +111,9 @@ const GrantPage = () => {
                   <div className="flex flex-col space-y-4">
                     <h2 className="heading-sm text-white-100">Usefull Links</h2>
                     <div className="flex flex-col space-y-4">
-                      {post.links.map((link) => {
+                      {post.links.map((link, index) => {
                         return (
-                          <Button href={link} link={'sm'} text={'brand'} className="w-fit">{link}</Button>
+                          <Button key={index} href={link} link={'sm'} text={'brand'} className="w-fit">{link}</Button>
                         )
                       })}
                     </div>
