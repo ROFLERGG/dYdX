@@ -1,6 +1,6 @@
-const Skeleton = () => {
+const Skeleton = ({ className="" }) => {
   return (
-    <div className={"flex shrink-0 min-h-[500px]"}>
+    <div className={`flex shrink-0 min-h-[500px] ` + className}>
       <div className="flex flex-1 snap-center flex-col bg-secondary rounded-2xl">
         {/* image */}
         <div className="w-full h-[180px] bg-white-100 opacity-20 rounded-2xl animate-pulse"></div>

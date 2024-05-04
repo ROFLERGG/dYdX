@@ -5,29 +5,14 @@ import Sprite from "../../../assets/sprite.svg"
 import { Link } from "react-router-dom"
 import { PostCard } from "../../../components/ui/post-card"
 import Skeleton from "./skeleton"
+import useFetch from "../../../hooks/useFetch"
 
 const BlogFilter = () => {
   const [activeCategory, setActiveCategory] = useState("Latest")
   const [showMoreItems, setShowMoreItems] = useState(6)
   const [loadMoreActive, setLoadMoreActive] = useState(false)
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data) {
-        setTimeout(() => {
-          setData(data)
-          setIsLoading(false)
-        }, 500);
-      }
-    })
-    .catch(err => {
-      console.log("Error: ", err)
-    })
-  },[])
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json'
+  const { data, isLoading } = useFetch(url)  
 
   let filteredPost = data.filter(item => {
     if (activeCategory !== 'Latest' && item.category !== activeCategory) {

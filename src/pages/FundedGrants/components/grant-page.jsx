@@ -22,8 +22,8 @@ const GrantPage = () => {
           <div className="flex justify-center">
             <div className={`flex flex-col w-[800px] ${post.image ? 'space-y-6' : ''}`}>
               {post.image &&
-                <div className="rounded-2xl border-2 border-secondaryHover overflow-hidden">
-                  <img width={800} height={400} className="object-cover object-center rounded-xl w-full h-full" src={post.image} alt={`image ${post.id}`} />
+                <div className="rounded-2xl border-2 border-secondaryHover">
+                  <img width={800} height={400} className="object-cover object-center rounded-xl w-full h-full" src={post.image} alt={`image${post.id}`} />
                 </div>
               }
               <div className="flex flex-col">

@@ -3,8 +3,8 @@ import Sprite from './../../assets/sprite.svg'
 import Grid from './../../assets/grid.png'
 import Button from "../ui/buttons"
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
 import useFetch from "../../hooks/useFetch"
+import Skeleton from "../../pages/FundedGrants/components/skeleton"
 
 const Grants = () => {
   const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json'
@@ -37,6 +37,13 @@ const Grants = () => {
           </div>
           <div className="relative overflow-x-hidden">
             <div className="snap-x snap-mandatory overflow-x-scroll scrollbar-none flex">
+              {isLoading &&
+                Array(4).fill(0).map((_, id) => {
+                  return (
+                    <Skeleton className="px-6 w-[460px] max-sm:w-[400px] max-[460px]:w-[360px]" key={id}/>
+                  )
+                })
+              }
               {data.slice(0, 4).map(post => {
                 return (
                   <GrantCard key={post.id} className="px-6 max-w-[460px] max-sm:max-w-[400px] max-[460px]:max-w-[360px]" {...post} />
