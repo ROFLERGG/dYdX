@@ -1,11 +1,37 @@
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Layout from "../../../components/layout"
 import useFetch from "../../../hooks/useFetch";
+import { useEffect, useState } from "react";
+import Markdown from "markdown-to-jsx";
 
 const BlogPage = () => {
   const { id } = useParams();
   const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json'
   const { data, isLoading } = useFetch(url) 
+  const [postContent, setPostContent] = useState();
+
+  const fetchPost = async() => {
+    const response = await fetch(`/posts/${id}.md`);
+    const text = await response.text();
+
+    const metadataArray = text.split("---")[1].trim().replaceAll("\n", "").split("\r");
+    let metadataObject = {}
+    metadataArray.forEach(r => {
+      const [key, value] = r.split(": ");
+      metadataObject[key] = value
+    })
+
+    setPostContent( {
+      metadata: metadataObject,
+      content: text.split("---")[2]
+    } )
+
+  }
+
+  useEffect(() => {
+    fetchPost()
+  },[])
+  console.log(postContent);
 
   const post = data.find(post => post.id == id)
 
@@ -13,6 +39,9 @@ const BlogPage = () => {
     return null
   }
   
+  if (!postContent) {
+    return <h1>sorry doesnt exist</h1>
+  }
   return (
     <Layout>
       <div className="py-[80px] max-lg:py-[40px]">
@@ -43,25 +72,7 @@ const BlogPage = () => {
                     <img width={800} height={460} className="object-cover object-center w-full h-full" src={post.image} alt={`image${post.id}`} />
                   </div>
                 }
-                <div className="flex flex-col space-y-10 max-lg:space-y-5">
-                  {post.head1 || post.desc1 &&
-                    <div className={`flex flex-col ${post.head1 ? 'space-y-6' : ''}`}>
-                      <p className="paragraph-md text-white-500">{post.desc1}</p>
-                    </div>
-                  }
-                  {(post.head2 || post.desc2) ?
-                    <div className={`flex flex-col ${post.head2 ? 'space-y-6' : ''}`}>
-                      <h2 className="heading-lg text-white-100">{post.head2}</h2>
-                      <p className="paragraph-md text-white-500">{post.desc2}</p>
-                    </div>: ""
-                  }
-                  {post.head3 || post.desc3 &&
-                    <div className={`flex flex-col ${post.head3 ? 'space-y-6' : ''}`}>
-                      <h2 className="heading-lg text-white-100">{post.head3}</h2>
-                      <p className="paragraph-md text-white-500">{post.desc3}</p>
-                    </div>
-                  }
-                </div>
+                <div className="flex justify-center"><Markdown className='prose max-w-full prose-p:text-white-500 prose-headings:text-white-100 prose-headings:heading-lg'>{postContent.content}</Markdown></div>
               </div>
             </div>
           </div>
