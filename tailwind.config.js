@@ -9,6 +9,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    typography: {
+      DEFAULT: {
+        css: {
+          margin: 0,
+          padding: 0,
+          p: {
+            margin: "24px 0px 24px 0px"
+          }
+        }
+      }
+    },
     container: {
       center: true,
       padding: '1rem',
