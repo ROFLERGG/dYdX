@@ -9,17 +9,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    typography: {
-      DEFAULT: {
-        css: {
-          margin: 0,
-          padding: 0,
-          p: {
-            margin: "24px 0px 24px 0px"
-          }
-        }
-      }
-    },
     container: {
       center: true,
       padding: '1rem',
@@ -44,6 +33,24 @@ export default {
       'transparent': 'transparent',
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              marginTop: 0,
+              marginBottom: 32
+            },
+            h3: {
+              marginTop: 0,
+              marginBottom: 32
+            },
+            h4: {
+              marginTop: 0,
+              marginBottom: 32
+            }
+          }
+        }
+      },
       fontFamily: {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
         mono: ["Space Mono", "monospace"]

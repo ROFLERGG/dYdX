@@ -8,43 +8,41 @@ const BlogPage = () => {
   const { id } = useParams();
   const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/blog-data.json'
   const { data, isLoading } = useFetch(url)
+  const [postIsLoading, setPostIsLoading] = useState(true)
   const [postContent, setPostContent] = useState();
 
   const fetchPost = async () => {
-    const response = await fetch(`/posts/${id}.md`);
-    const text = await response.text();
+    try {
+      const response = await fetch(`/posts/${id}.md`);
+      const text = await response.text();
 
-    const metadataArray = text.split("---")[1].trim().replaceAll("\n", "").split("\r");
-    let metadataObject = {}
-    metadataArray.forEach(r => {
-      const [key, value] = r.split(": ");
-      metadataObject[key] = value
-    })
+      const metaDataArray = text.split("---")[1].trim().replaceAll("\n", "").split("\r");
+      let metaDataObject = {}
+      metaDataArray.forEach(e => {
+        const [key, value] = e.split(": ")
+        metaDataObject[key] = value
+      })
 
-    setPostContent( {
-      metadata: metadataObject,
-      content: text.split("---")[2]
-    } )
-
+      setPostContent( {
+        metadata: metaDataObject,
+        content: text.split("---")[2]
+      } )
+    } catch (err) {
+      console.log("Error: ", err);
+    } finally {
+      setPostIsLoading(false)
+    }
   }
 
   useEffect(() => {
     fetchPost()
   },[])
-  console.log(postContent);
 
   const post = data.find(post => post.id == id)
-
-  // if (!post) {
-  //   return null
-  // }
   
-  // if (!postContent) {
-  //   return <h1>sorry doesnt exist</h1>
-  // }
   return (
     <Layout>
-      <div className={`py-[80px] max-lg:py-[40px] ${!postContent ? 'flex flex-col justify-center flex-1' : ''}`}>
+      <div className={`${!postContent ? 'flex flex-col justify-center flex-1 min-h-[calc(100vh-98px)]' : 'py-[80px] max-lg:py-[40px]'}`}>
         <div className="container">
           <div className={`flex justify-center flex-1`}>
             {postContent && post &&
@@ -53,14 +51,20 @@ const BlogPage = () => {
                   {/* heading */}
                   <div className="flex flex-col space-y-10 max-lg:space-y-5">
                     <div className="flex flex-col items-center">
-                      <span className="mono-paragraph-md text-white-500">{post.category}</span>
-                      <h2 className="heading-xl text-white-100 text-center">{post.title}</h2>
+                      <span className="mono-paragraph-md text-white-500">
+                        <Markdown>{postContent.metadata.category}</Markdown>
+                      </span>
+                      <h2 className="heading-xl text-white-100 text-center">
+                        <Markdown>{postContent.metadata.title}</Markdown>
+                      </h2>
                     </div>
                     {/* author */}
                     <div className="flex justify-center">
                       <div className="flex flex-col items-center space-y-4">
                         <h2 className="heading-sm text-white-100">By:</h2>
-                        <div className="flex items-center py-3 px-5 rounded-full bg-secondary hover:bg-secondaryHover cursor-pointer select-none paragraph-md text-white-100">dYdX Grants Team</div>
+                        <div className="flex items-center py-3 px-5 rounded-full bg-secondary hover:bg-secondaryHover cursor-pointer select-none paragraph-md text-white-100">
+                          <Markdown>{postContent.metadata.author}</Markdown>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -73,12 +77,14 @@ const BlogPage = () => {
                       <img width={800} height={460} className="object-cover object-center w-full h-full" src={post.image} alt={`image${post.id}`} />
                     </div>
                   }
-                  <div className="flex justify-center"><Markdown className='prose max-w-full prose-p:text-white-500 prose-headings:text-white-100 prose-headings:heading-lg'>{postContent.content}</Markdown></div>
+                  <div className="flex justify-center">
+                    <Markdown className='prose max-w-full prose-p:text-white-500 prose-p:paragraph-lg prose-headings:text-white-100 prose-h1:heading-lg prose-h2:heading-md prose-h3:heading-sm'>{postContent.content}</Markdown>
+                  </div>
                 </div>
               </div>
             }
             
-            {!postContent &&
+            {!postContent && !postIsLoading &&
               <div>
                 <h1 className="heading-lg text-white-500">Post doesnt exist :(</h1>
               </div>
