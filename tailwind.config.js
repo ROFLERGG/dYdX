@@ -47,7 +47,10 @@ export default {
             h4: {
               marginTop: 0,
               marginBottom: 32
-            }
+            },
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' },
+            'blockquote p': { fontStyle: 'normal', margin: '0', color: 'white' },
           }
         }
       },

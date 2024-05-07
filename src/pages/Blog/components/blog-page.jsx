@@ -34,15 +34,16 @@ const BlogPage = () => {
     }
   }
 
+
   useEffect(() => {
-    fetchPost()
+    fetchPost();
   },[])
 
   const post = data.find(post => post.id == id)
   
   return (
     <Layout>
-      <div className={`${!postContent ? 'flex flex-col justify-center flex-1 min-h-[calc(100vh-98px)]' : 'py-[80px] max-lg:py-[40px]'}`}>
+      <div className='flex flex-col justify-center flex-1 py-[80px] max-lg:py-[40px]'>
         <div className="container">
           <div className={`flex justify-center flex-1`}>
             {postContent && post &&
@@ -78,15 +79,19 @@ const BlogPage = () => {
                     </div>
                   }
                   <div className="flex justify-center">
-                    <Markdown className='prose max-w-full prose-p:text-white-500 prose-p:paragraph-lg prose-headings:text-white-100 prose-h1:heading-lg prose-h2:heading-md prose-h3:heading-sm'>{postContent.content}</Markdown>
+                    <Markdown className='prose max-w-full prose-p:text-white-500 prose-p:paragraph-md prose-headings:text-white-100 prose-h1:heading-lg prose-h2:heading-md prose-h3:heading-sm prose-blockquote:p-8 prose-blockquote:bg-secondaryHover prose-blockquote:border-none prose-blockquote:rounded-2xl prose-blockquote:paragraph-lg'>{postContent.content}</Markdown>
                   </div>
                 </div>
               </div>
             }
-            
             {!postContent && !postIsLoading &&
               <div>
                 <h1 className="heading-lg text-white-500">Post doesnt exist :(</h1>
+              </div>
+            }
+            {postIsLoading &&
+              <div>
+                <h2 className="heading-xl text-white-100">Post is loading...</h2>
               </div>
             }
           </div>
