@@ -1,14 +1,14 @@
-import GrantCard from "../ui/card"
-import Sprite from './../../assets/sprite.svg'
-import Grid from './../../assets/grid.png'
-import Button from "../ui/buttons"
-import { Link } from "react-router-dom"
-import useFetch from "../../hooks/useFetch"
-import Skeleton from "../../pages/FundedGrants/components/skeleton"
+import GrantCard from '../ui/card';
+import Sprite from './../../assets/sprite.svg';
+import Grid from './../../assets/grid.png';
+import Button from '../ui/buttons';
+import { Link } from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
+import Skeleton from '../../pages/FundedGrants/components/skeleton';
 
 const Grants = () => {
-  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json'
-  const { data, isLoading } = useFetch(url)
+  const url = 'https://raw.githubusercontent.com/ROFLERGG/dYdX/main/src/data/grant-data.json';
+  const { data, isLoading } = useFetch(url);
 
   return (
     <div className="pb-[80px]">
@@ -21,11 +21,11 @@ const Grants = () => {
                   <h2 className="heading-lg text-white-100">Projects built with grants</h2>
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
                 </div>
-                <Link to='/grants'>
+                <Link to="/grants">
                   <Button link={'sm'} text={'brand'} className="paragraph-lg flex items-center space-x-2">
                     <span>View all funded projects</span>
                     <svg className="w-6 h-6">
-                      <use xlinkHref={Sprite + '#fi_arrow-right'}/>
+                      <use xlinkHref={Sprite + '#fi_arrow-right'} />
                     </svg>
                   </Button>
                 </Link>
@@ -38,23 +38,20 @@ const Grants = () => {
           <div className="relative overflow-x-hidden">
             <div className="snap-x snap-mandatory overflow-x-scroll scrollbar-none flex">
               {isLoading &&
-                Array(4).fill(0).map((_, id) => {
-                  return (
-                    <Skeleton className="px-6 w-[460px] max-sm:w-[400px] max-[460px]:w-[360px]" key={id}/>
-                  )
-                })
-              }
-              {data.slice(0, 4).map(post => {
-                return (
-                  <GrantCard key={post.id} className="px-6 max-w-[460px] max-sm:max-w-[400px] max-[460px]:max-w-[360px]" {...post} />
-                )
+                Array(4)
+                  .fill(0)
+                  .map((_, id) => {
+                    return <Skeleton className="px-6 w-[460px] max-sm:w-[400px] max-[460px]:w-[360px]" key={id} />;
+                  })}
+              {data.slice(0, 4).map((post) => {
+                return <GrantCard key={post.id} className="px-6 max-w-[460px] max-sm:max-w-[400px] max-[460px]:max-w-[360px]" {...post} />;
               })}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Grants
+export default Grants;

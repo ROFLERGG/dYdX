@@ -50,7 +50,7 @@ export default {
             },
             'blockquote p:first-of-type::before': { content: 'none' },
             'blockquote p:first-of-type::after': { content: 'none' },
-            'blockquote p': { fontStyle: 'normal', margin: '0', color: 'white' },
+            'blockquote p': { fontStyle: 'normal', margin: '0', color: 'white !important' },
           }
         }
       },

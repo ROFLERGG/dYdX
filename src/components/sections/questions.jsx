@@ -1,6 +1,6 @@
-import Grid from "./../../assets/grid.png"
-import Oval from "./../../assets/oval.png"
-import FaqButtons from "../ui/faq-button"
+import Grid from './../../assets/grid.png';
+import Oval from './../../assets/oval.png';
+import { FrequentlyAskedQuestions } from '../ui/faq-button';
 
 const Questions = () => {
   return (
@@ -11,7 +11,8 @@ const Questions = () => {
             <div className="max-w-[600px] py-[80px] max-lg:py-[40px]">
               <div className="px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center z-10">
-                  <h2 className="heading-lg text-white-100 text-center">Frequently asked
+                  <h2 className="heading-lg text-white-100 text-center">
+                    Frequently asked
                     <span className="inline-block relative px-2">
                       <span>questions</span>
                       <img className="absolute inset-y-1/2 inset-x-1/2 -translate-x-1/2 -translate-y-1/2" src={Oval} alt="Oval" />
@@ -27,13 +28,13 @@ const Questions = () => {
           </div>
           <div className="max-lg:px-6">
             <div className="flex flex-col border-t border-b border-subtle divide-y divide-subtle">
-              <FaqButtons/>
+              <FrequentlyAskedQuestions />
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Questions
+export default Questions;
