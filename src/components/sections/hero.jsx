@@ -1,24 +1,33 @@
-import { Link } from "react-router-dom"
-import Button from "../ui/buttons"
-import DownArrow from "../../assets/down-arrow.svg"
-import Underline from "../../assets/underline.svg"
+import { Link } from 'react-router-dom';
+import Button from '../ui/buttons';
+import DownArrow from '../../assets/down-arrow.svg';
+import Underline from '../../assets/underline.svg';
 
 const Hero = () => {
   return (
-    <div className="relative py-[80px]">
+    <div className="relative min-h-screen flex flex-col justify-center flex-1 pt-[98px]">
       <div className="container">
-        <div className="flex justify-center">
+        <div className="flex justify-center py-[80px]">
           <div className="flex flex-col max-w-[800px] space-y-[80px] max-sm:space-y-[40px]">
             <div className="flex flex-col space-y-[40px]">
-              <h1 className="hero text-white-100 text-center">Powering the future of dYdX through community
+              <h1 className="hero text-white-100 text-center">
+                Powering the future of dYdX through community
                 <span className="relative inline-block px-2">
                   <span>grants</span>
                   <img className="absolute right-0 top-full" src={Underline} alt="underline" />
                 </span>
               </h1>
               <div className="flex justify-center space-x-8 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
-                <Link to="/initiatives"><Button btn={'secondary'} bg={'secondary'} text={'white'} className={'text-center flex justify-center w-full'}>Discover RFPs</Button></Link>
-                <Button btn={'primary'} bg={'brand'} text={'white'} className={'text-center'}>Apply for grant</Button>
+                <Link to="/initiatives">
+                  <Button btn={'secondary'} bg={'secondary'} text={'white'} className={'text-center flex justify-center w-full'}>
+                    Discover RFPs
+                  </Button>
+                </Link>
+                <Link to={'/apply'}>
+                  <Button btn={'primary'} bg={'brand'} text={'white'} className={'text-center flex justify-center w-full'}>
+                    Apply for grant
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex justify-between items-center max-sm:flex-col max-sm:space-y-8">
@@ -42,7 +51,7 @@ const Hero = () => {
         <use xlinkHref={DownArrow + '#down-arrow'}></use>
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
