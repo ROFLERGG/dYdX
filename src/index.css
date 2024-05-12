@@ -45,25 +45,25 @@
     font-size: clamp(12px, 0.714rem + 0.18vw, 14px);
   }
   .mono-paragraph-xl {
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
     font-weight: 500;
     line-height: 1.5rem;
     font-size: 20px;
   }
   .mono-paragraph-lg {
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
     font-weight: 500;
     line-height: 1.5rem;
     font-size: 18px;
   }
   .mono-paragraph-md {
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
     font-weight: 500;
     line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
     font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
   }
   .mono-paragraph-sm {
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
     font-weight: 500;
     line-height: clamp(1.25rem, 1.179rem + 0.36vw, 1.5rem);
     font-size: 14px;
@@ -74,7 +74,7 @@
     font-size: clamp(14px, 0.839rem + 0.18vw, 16px);
   }
   .number {
-    font-family: "Nanum Pen Script", cursive;
+    font-family: 'Nanum Pen Script', cursive;
     font-weight: 500;
     line-height: clamp(3rem, 2.714rem + 1.43vw, 4rem);
     font-size: clamp(48px, 2.714rem + 1.43vw, 64px);
@@ -98,6 +98,9 @@
   .grid-img {
     mask-image: radial-gradient(rgba(0, 0, 0, 1) 10%, transparent 70%);
     -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 1) 10%, transparent 70%);
+  }
+  .grid-gradient-to-bottom {
+    mask-image: linear-gradient(to bottom, #000, transparent);
   }
   /* .grid-to-bottom {
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 10%, transparent 100%);

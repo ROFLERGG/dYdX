@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom';
 import Button from '../ui/buttons';
 import DownArrow from '../../assets/down-arrow.svg';
 import Underline from '../../assets/underline.svg';
+import Grid from '../../assets/grid.png';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex flex-col justify-center flex-1 pt-[98px]">
+    <div className="relative min-h-screen overflow-hidden flex flex-col justify-center flex-1 pt-[98px]">
+      <div className="absolute w-full h-full top-0">
+        <img className="h-full w-full grid-gradient-to-bottom object-cover object-center select-none" src={Grid} alt="Grid" />
+      </div>
       <div className="container">
         <div className="flex justify-center py-[80px]">
           <div className="flex flex-col max-w-[800px] space-y-[80px] max-sm:space-y-[40px]">

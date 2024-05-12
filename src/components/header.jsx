@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import Logo from '../assets/logo.svg';
 import Button from './ui/buttons';
 import MenuIcon from './../assets/sprite.svg';
@@ -6,6 +6,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const Header = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closed = `${MenuIcon + '#fi_menu'}`;
   const opened = `${MenuIcon + '#fi_x'}`;
   const location = useLocation();
@@ -16,11 +17,22 @@ const Header = forwardRef((props, ref) => {
       return !isOpen;
     });
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', scrollHandler);
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
   return (
-    <header className="w-full px-6 py-4 z-40 fixed bg-primary rounded-b-2xl">
+    <header className={`w-full px-6 py-4 z-40 fixed rounded-b-2xl ${scrolled ? 'bg-primary' : ''}`}>
       <div className="flex justify-between items-center">
         <NavLink to="/" className="relative z-50">
           <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />

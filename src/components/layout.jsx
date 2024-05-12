@@ -11,8 +11,7 @@ const Layout = ({ children }) => {
     menuRef.current.style.overflow = 'visible';
   }, []);
   return (
-    <div className="relative flex flex-col min-h-screen bg-primary">
-      <img className="absolute" src={Grid} alt="" />
+    <div className="flex flex-col min-h-screen bg-primary">
       <Header ref={menuRef} />
       <main className="flex flex-1 flex-col relative">{children}</main>
       <Footer />
