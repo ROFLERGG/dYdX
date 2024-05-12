@@ -3,7 +3,7 @@ import Button from '../ui/buttons';
 
 const CallToAction = () => {
   return (
-    <div className="py-[80px] max-md:py-[40px]">
+    <div className="relative z-10 py-20">
       <div className="container">
         <div className="bg-gradient-to-br from-brand to-brandHover w-full py-10 flex justify-center rounded-2xl">
           <div className="flex flex-col space-y-10 px-10">

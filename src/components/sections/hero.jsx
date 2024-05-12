@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="absolute w-full h-full top-0">
         <img className="h-full w-full grid-gradient-to-bottom object-cover object-center select-none" src={Grid} alt="Grid" />
       </div>
-      <div className="container">
+      <div className="relative container">
         <div className="flex justify-center py-[80px]">
           <div className="flex flex-col max-w-[800px] space-y-[80px] max-sm:space-y-[40px]">
             <div className="flex flex-col space-y-[40px]">

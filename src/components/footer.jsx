@@ -3,10 +3,14 @@ import Button from './ui/buttons';
 import Sprite from './../assets/sprite.svg';
 import Social from './../assets/socials.svg';
 import { Link } from 'react-router-dom';
+import Grid from '../assets/grid.png';
 
 const Footer = () => {
   return (
-    <footer className="w-full py-[30px]">
+    <footer className="relative z-0 w-full py-10 max-lg:py-4">
+      <div className="absolute w-full h-full min-h-screen bottom-0">
+        <img className="h-full w-full grid-gradient-to-top object-cover object-center select-none" src={Grid} alt="Grid" />
+      </div>
       <div className="container">
         <div className="flex justify-between items-center max-lg:flex-col max-lg:items-start max-lg:space-y-8">
           <div className="flex items-center space-x-8 max-lg:flex-col max-lg:items-start max-lg:space-x-0 max-lg:space-y-8">

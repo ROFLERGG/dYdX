@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen bg-primary">
       <Header ref={menuRef} />
-      <main className="flex flex-1 flex-col relative">{children}</main>
+      <main className="flex flex-1 flex-col relative z-10">{children}</main>
       <Footer />
     </div>
   );

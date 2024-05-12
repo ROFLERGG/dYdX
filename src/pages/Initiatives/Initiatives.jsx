@@ -7,7 +7,7 @@ const Initiatives = () => {
   return (
     <Layout>
       <Content>
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-10">
           <div className="flex flex-col space-y-10 max-w-[800px] overflow-x-hidden">
             <div className="flex flex-col items-center space-y-6 text-center">
               <h2 className="heading-xl text-white-100">Discover initiatives (RFPs)</h2>
@@ -16,8 +16,8 @@ const Initiatives = () => {
             <Filter />
           </div>
         </div>
-        <CallToAction />
       </Content>
+      <CallToAction />
     </Layout>
   );
 };

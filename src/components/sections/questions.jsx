@@ -4,7 +4,7 @@ import { FrequentlyAskedQuestions } from '../ui/faq-button';
 
 const Questions = () => {
   return (
-    <div className="pb-[80px]">
+    <div className="py-20 max-md:py-10">
       <div className="container max-lg:mx-0 max-lg:px-0">
         <div className="flex flex-col">
           <div className="flex justify-center relative overflow-hidden">

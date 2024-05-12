@@ -1,6 +1,6 @@
 const Content = ({ children }) => {
   return (
-    <div className="py-[80px] max-lg:py-[40px]">
+    <div className="pt-[98px]">
       <div className="container">{children}</div>
     </div>
   );
