@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="absolute z-0 min-h-[600px] w-full h-full bottom-0 grid-image mask-to-top"></div>
+      <div className="absolute z-0 min-h-[400px] w-full h-full bottom-0 grid-image mask-to-top"></div>
     </footer>
   );
 };

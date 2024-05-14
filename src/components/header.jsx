@@ -32,7 +32,7 @@ const Header = forwardRef((props, ref) => {
     };
   }, []);
   return (
-    <header className={`w-full px-6 py-4 z-40 fixed duration-300 ease-in-out ${scrolled ? 'bg-primary' : ''}`}>
+    <header className={`w-full px-6 py-4 z-40 fixed duration-75 ${scrolled ? 'bg-primary' : ''}`}>
       <div className="flex justify-between items-center">
         <NavLink to="/" className="relative z-50">
           <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />
