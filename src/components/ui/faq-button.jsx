@@ -103,7 +103,7 @@ const FaqButton = ({ question, answer, id }) => {
   return (
     <div>
       <input type="checkbox" name="question" id={id + 1} className="hidden" />
-      <label onClick={setIsOpenHandler} htmlFor={id + 1} className={`flex flex-col justify-center duration-150 overflow-hidden ${isOpen ? 'space-y-6' : ''} py-6 cursor-pointer select-none`}>
+      <label onClick={setIsOpenHandler} htmlFor={id + 1} className={`flex flex-col justify-center duration-150 overflow-hidden ${isOpen ? 'space-y-6' : ''} py-6 cursor-pointer`}>
         <div className="flex justify-between items-center space-x-6">
           <p className="paragraph-md text-white-100">{question}</p>
           <div className={`w-4 h-4 relative items-center shrink-0`}>

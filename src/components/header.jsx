@@ -24,7 +24,7 @@ const Header = forwardRef((props, ref) => {
 
   useEffect(() => {
     const scrollHandler = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 0);
     };
     window.addEventListener('scroll', scrollHandler);
     return () => {
@@ -32,7 +32,7 @@ const Header = forwardRef((props, ref) => {
     };
   }, []);
   return (
-    <header className={`w-full px-6 py-4 z-40 fixed rounded-b-2xl duration-300 ease-in-out ${scrolled ? 'bg-primary' : ''}`}>
+    <header className={`w-full px-6 py-4 z-40 fixed duration-300 ease-in-out ${scrolled ? 'bg-primary' : ''}`}>
       <div className="flex justify-between items-center">
         <NavLink to="/" className="relative z-50">
           <img className="w-[112px] h-[66px]" src={Logo} alt="logo" />

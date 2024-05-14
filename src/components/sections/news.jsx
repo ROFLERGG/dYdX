@@ -4,16 +4,17 @@ import Sparkle from './../../assets/sparkle.svg';
 import { PostCard } from '../ui/post-card';
 import Button from '../ui/buttons';
 import BlogData from '../../data/blog-data.json';
+import SectionGrid from '../section-grid';
 
 const News = () => {
   const lastPosts = BlogData.slice(-2).reverse();
   return (
-    <div className="py-20 max-md:py-10">
+    <div className="py-10 overflow-hidden">
       <div className="container max-lg:mx-0 max-lg:px-0">
         <div className="flex flex-col">
-          <div className="flex justify-center relative overflow-hidden">
-            <div className="max-w-[600px] py-[80px] max-lg:py-[40px] z-10">
-              <div className="px-4 flex flex-col items-center space-y-6">
+          <div className="flex justify-center">
+            <div className="relative max-w-[600px] py-[80px] max-lg:py-[40px] z-10">
+              <div className="relative z-10 px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center">
                   <h2 className="heading-lg text-white-100 text-center">
                     What’s
@@ -31,13 +32,11 @@ const News = () => {
                   </svg>
                 </Button>
               </div>
-            </div>
-            <div className="absolute top-0 min-w-[920px] h-full">
-              <img className="grid-img object-cover object-center h-full select-none" width={920} height={320} src={Grid} alt="grid" />
+              <SectionGrid />
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="flex gap-6 max-w-[800px] max-md:flex-col max-lg:px-6">
+            <div className="flex gap-6 z-10 max-w-[800px] max-md:flex-col max-lg:px-6">
               {/* blog post */}
               {lastPosts.map((post) => {
                 return <PostCard post={post} key={post.id} />;

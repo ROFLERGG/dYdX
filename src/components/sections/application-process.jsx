@@ -1,15 +1,16 @@
 import Grid from './../../assets/grid.png';
 import Wave from './../../assets/wave.png';
 import ProcessCard from '../ui/process';
+import SectionGrid from '../section-grid';
 
 const ApplicationProcess = () => {
   return (
-    <div className="py-20 max-md:py-10">
+    <div className="py-10 overflow-hidden">
       <div className="container max-lg:mx-0 max-lg:px-0">
         <div className="flex flex-col">
-          <div className="flex justify-center relative overflow-hidden">
-            <div className="max-w-[600px] py-[80px] max-lg:py-[40px]">
-              <div className="px-4 flex flex-col items-center space-y-6">
+          <div className="flex justify-center">
+            <div className="relative max-w-[600px] py-[80px] max-lg:py-[40px]">
+              <div className="relative z-10 px-4 flex flex-col items-center space-y-6">
                 <div className="flex flex-col space-y-4 text-center z-10">
                   <h2 className="heading-lg text-white-100 text-center">
                     Application
@@ -21,9 +22,7 @@ const ApplicationProcess = () => {
                   <p className="paragraph-lg text-white-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla risus, consectetur ut bibendum non, gravida non libero.</p>
                 </div>
               </div>
-            </div>
-            <div className="absolute top-0 min-w-[920px] h-full">
-              <img className="grid-img object-cover object-center h-full" width={920} height={320} src={Grid} alt="grid" />
+              <SectionGrid />
             </div>
           </div>
           <div className="flex justify-between gap-8 px-6 max-md:flex-col">

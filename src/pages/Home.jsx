@@ -10,12 +10,13 @@ const Home = () => {
   return (
     <Layout>
       <Hero />
-      <Grants />
-      <News />
-      <Questions />
-      <ApplicationProcess />
-      <CallToAction />
-      {/* ... */}
+      <div className="flex flex-col">
+        <Grants />
+        <News />
+        <Questions />
+        <ApplicationProcess />
+        <CallToAction />
+      </div>
     </Layout>
   );
 };
