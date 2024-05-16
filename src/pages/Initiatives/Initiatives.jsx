@@ -2,7 +2,6 @@ import Layout from '../../components/layout';
 import Filter from './components/filter';
 import CallToAction from './../../components/sections/call-to-action';
 import Content from '../../components/content';
-import Grid from '../../assets/grid.png';
 
 const Initiatives = () => {
   return (

@@ -1,5 +1,5 @@
 import './index.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Initiatives from './pages/Initiatives/Initiatives';
@@ -9,10 +9,12 @@ import ProgramExpenses from './pages/ProgramExpenses/program-expenses';
 import Blog from './pages/Blog/blog';
 import BlogPage from './pages/Blog/components/blog-page';
 import FaqPage from './pages/Faq/Faq-page';
+import ScrollToTop from './components/scroll-to-top';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/initiatives" element={<Initiatives />} />

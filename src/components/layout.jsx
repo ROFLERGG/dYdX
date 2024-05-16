@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Header from './header';
 import Footer from './footer';
-import Grid from '../assets/grid.png';
 
 const Layout = ({ children }) => {
   const menuRef = useRef(null);

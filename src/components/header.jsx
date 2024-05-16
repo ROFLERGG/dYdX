@@ -1,15 +1,14 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import Logo from '../assets/logo.svg';
 import Button from './ui/buttons';
 import MenuIcon from './../assets/sprite.svg';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closed = `${MenuIcon + '#fi_menu'}`;
   const opened = `${MenuIcon + '#fi_x'}`;
-  const location = useLocation();
   const toggleMenu = () => {
     setIsOpen((isOpen) => {
       ref.current.style.width = !isOpen ? '100%' : 'auto';
@@ -17,10 +16,6 @@ const Header = forwardRef((props, ref) => {
       return !isOpen;
     });
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   useEffect(() => {
     const scrollHandler = () => {
